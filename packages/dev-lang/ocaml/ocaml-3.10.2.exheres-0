@@ -1,0 +1,56 @@
+# Copyright 2008 Saleem Abdulrasool <compnerd@compnerd.org>
+# Distributed under the terms of the GNU General Purpose License v2
+# Based in part on 'ocaml-3.10.2.ebuild' which is
+#    Copyright 1999-2008 Gentoo Foundation
+
+require multilib versionator
+
+SUMMARY=""
+HOMEPAGE="http://www.ocaml.org/"
+DOWNLOADS="http://caml.inria.fr/pub/distrib/${PN}-$(get_version_component_range 1-2)/${PNV}.tar.bz2"
+
+LICENCES="LGPL-2"
+SLOT="0"
+PLATFORMS="~x86"
+MYOPTIONS=""
+
+DEPENDENCIES=""
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PN}-3.10.0-exec-stack-fixes.patch"
+                              "${FILES}/${PN}-3.10.0-configure.patch"
+                              "${FILES}/${PN}-3.10.0-automagic.patch"
+                              "${FILES}/${PN}-3.10.0-call-ld-with-proper-ldflags.patch" )
+
+src_configure() {
+    ./configure --host ${CHOST}                     \
+                --prefix /usr                       \
+                --bindir /usr/bin                   \
+                --libdir /usr/$(get_libdir)/ocaml   \
+                --mandir /usr/share/man             \
+                --no-tk --no-graph --no-dbm -no-curses || die "configure failed"
+}
+
+src_compile() {
+    emake world opt opt.opt || die "emake failed"
+}
+
+src_install() {
+    emake BINDIR="${IMAGE}/usr/bin"                 \
+          LIBDIR="${IMAGE}/usr/$(get_libdir)/ocaml" \
+          MANDIR="${IMAGE}/usr/share/man" install || die "install failed"
+
+    # empty directory
+    rmdir "${IMAGE}/usr/lib/ocaml/ocamldoc/custom" || die
+
+    # compiler libraries
+    dodir /usr/$(get_libdir)/ocaml/compiler-libs
+    insinto /usr/$(get_libdir)/ocaml/compiler-libs
+    doins "${WORK}"/{utils,typing,parsing}/*.{mli,cmi,cmo,cmx,o}
+
+    # headers
+    dodir /usr/include
+    dosym /usr/$(get_libdir)/ocaml/caml /usr/include
+
+    # Remove references to ${IMAGE} from ld.conf, the build doesnt deal with $(DESTDIR)
+    sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/$(get_libdir)/ocaml/ld.conf" || die
+}
