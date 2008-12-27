@@ -5,7 +5,7 @@
 
 require multilib versionator
 
-SUMMARY=""
+SUMMARY="Objective Caml, the main implementation of the Caml programming language"
 HOMEPAGE="http://www.ocaml.org/"
 DOWNLOADS="http://caml.inria.fr/pub/distrib/${PN}-$(get_version_component_range 1-2)/${PNV}.tar.bz2"
 
