@@ -3,11 +3,11 @@
 # Based in part on 'ocaml-3.10.2.ebuild' which is
 #    Copyright 1999-2008 Gentoo Foundation
 
-require multilib versionator
+require multilib
 
 SUMMARY="Objective Caml, the main implementation of the Caml programming language"
 HOMEPAGE="http://www.ocaml.org/"
-DOWNLOADS="http://caml.inria.fr/pub/distrib/${PN}-$(get_version_component_range 1-2)/${PNV}.tar.bz2"
+DOWNLOADS="http://caml.inria.fr/pub/distrib/${PN}-$(ever range 1-2)/${PNV}.tar.bz2"
 
 LICENCES="LGPL-2"
 SLOT="0"
