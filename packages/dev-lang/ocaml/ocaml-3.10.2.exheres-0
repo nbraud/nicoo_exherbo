@@ -20,6 +20,7 @@ DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PN}-3.10.0-exec-stack-fixes.patch"
                               "${FILES}/${PN}-3.10.0-configure.patch"
                               "${FILES}/${PN}-3.10.0-automagic.patch"
                               "${FILES}/${PN}-3.10.0-call-ld-with-proper-ldflags.patch" )
+DEFAULT_SRC_COMPILE_PARAMS=( world opt opt.opt )
 
 src_configure() {
     ./configure --host ${CHOST}                     \
@@ -30,27 +31,24 @@ src_configure() {
                 --no-tk --no-graph --no-dbm -no-curses || die "configure failed"
 }
 
-src_compile() {
-    emake world opt opt.opt || die "emake failed"
-}
-
 src_install() {
     emake BINDIR="${IMAGE}/usr/bin"                 \
           LIBDIR="${IMAGE}/usr/$(get_libdir)/ocaml" \
           MANDIR="${IMAGE}/usr/share/man" install || die "install failed"
 
-    # empty directory
-    rmdir "${IMAGE}/usr/lib/ocaml/ocamldoc/custom" || die
+    # Empty directory
+    rmdir "${IMAGE}/usr/$(get_libdir)/ocaml/ocamldoc/custom" || die "Couldn't remove empty dir"
 
-    # compiler libraries
+    # Compiler libraries
     dodir /usr/$(get_libdir)/ocaml/compiler-libs
     insinto /usr/$(get_libdir)/ocaml/compiler-libs
     doins "${WORK}"/{utils,typing,parsing}/*.{mli,cmi,cmo,cmx,o}
 
-    # headers
+    # Headers
     dodir /usr/include
     dosym /usr/$(get_libdir)/ocaml/caml /usr/include
 
     # Remove references to ${IMAGE} from ld.conf, the build doesnt deal with $(DESTDIR)
-    sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/$(get_libdir)/ocaml/ld.conf" || die
+    sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/$(get_libdir)/ocaml/ld.conf" || die "Couldn't remove DESTDIR references from ld.conf"
 }
+
