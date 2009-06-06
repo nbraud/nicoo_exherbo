@@ -11,7 +11,7 @@ DOWNLOADS="http://caml.inria.fr/pub/distrib/${PN}-$(ever range 1-2)/${PNV}.tar.b
 
 LICENCES="LGPL-2"
 SLOT="0"
-PLATFORMS="~x86"
+PLATFORMS="~amd64 ~x86"
 MYOPTIONS=""
 
 DEPENDENCIES=""
@@ -21,6 +21,8 @@ DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PN}-3.10.0-exec-stack-fixes.patch"
                               "${FILES}/${PN}-3.10.0-automagic.patch"
                               "${FILES}/${PN}-3.10.0-call-ld-with-proper-ldflags.patch" )
 DEFAULT_SRC_COMPILE_PARAMS=( world opt opt.opt )
+
+MAKEOPTS+=" -j1"
 
 src_configure() {
     ./configure --host ${CHOST}                     \
@@ -51,4 +53,3 @@ src_install() {
     # Remove references to ${IMAGE} from ld.conf, the build doesnt deal with $(DESTDIR)
     sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/$(get_libdir)/ocaml/ld.conf" || die "Couldn't remove DESTDIR references from ld.conf"
 }
-
