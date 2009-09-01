@@ -1,7 +1,7 @@
 # Copyright 2009 A Frederick Christensen <fauxmight@nosocomia.com>
 # Distributed under the terms of the GNU General Public License v2
-
-require flag-o-matic
+# Based in part on 'unison-2.27.57-r1.ebuild' from Gentoo, which is
+#     Copyright 1999-2008 Gentoo Foundation
 
 SLOT="0"
 
@@ -29,7 +29,6 @@ DOWNLOADS="
     http://www.seas.upenn.edu/~bcpierce/unison//download/releases/stable/"${PNV}".tar.gz
 "
 MYOPTIONS="
-    doc
     gtk
     ocamlopt [[ description = [ Adds support for native compiled ocaml code ] ]]
     threads
@@ -41,11 +40,6 @@ REMOTE_IDS="freshmeat:unison"
 UPSTREAM_CHANGELOG="http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html#news"
 UPSTREAM_DOCUMENTATION="http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html"
 
-src_configure() {
-    # ocamlopt barfs on "-march" if passed to make
-    filter-flags -march
-}
-
 
 src_compile() {
     NATIVE_BOOL=false
@@ -54,16 +48,18 @@ src_compile() {
     option ocamlopt && NATIVE_BOOL=true
     option threads && THREADS_BOOL=true
     option gtk && UISTYLE_STRING=gtk2
-    make UISTYLE="$UISTYLE_STRING" NATIVE="$NATIVE_BOOL" THREADS="$THREADS_BOOL" || die "make failed!"
+    # NO CLFAGS -- ocamlc/ocamlopt doesn't know what to do with them
+    make UISTYLE="$UISTYLE_STRING" NATIVE="$NATIVE_BOOL" THREADS="$THREADS_BOOL" CFLAGS="" || die "make failed!"
+}
+
+
+src_test() {
+    emake selftest || die "selftest failed!"
 }
 
 
 src_install() {
-    #FIXME: check that EXTRA_DOCS don't overlap what's installed by default
-    if option doc; then
-        DEFAULT_SRC_INSTALL_EXTRA_DOCS="BUGS.txt CONTRIB ROADMAP.txt TODO.txt"
-    fi
-    insinto /usr/bin
-    dobin unison
-    default
+    # Does not respect DISTDIR - Install by hand
+    dodoc BUGS.txt CONTRIB INSTALL NEWS README ROADMAP.txt TODO.txt || die "install documentation failed!"
+    dobin unison || die "install unison failed!"
 }
