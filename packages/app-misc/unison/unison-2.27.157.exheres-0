@@ -1,6 +1,8 @@
 # Copyright 2009 A Frederick Christensen <fauxmight@nosocomia.com>
 # Distributed under the terms of the GNU General Public License v2
 
+require flag-o-matic
+
 SLOT="0"
 
 SUMMARY="Unison is a bi-directional file synchronization tool written in OCaml"
@@ -38,6 +40,11 @@ BUGS_TO="fauxmight@nosocomia.com"
 REMOTE_IDS="freshmeat:unison"
 UPSTREAM_CHANGELOG="http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html#news"
 UPSTREAM_DOCUMENTATION="http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html"
+
+src_configure() {
+    # ocamlopt barfs on "-march" if passed to make
+    filter-flags -march
+}
 
 
 src_compile() {
