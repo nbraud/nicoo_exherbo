@@ -1,0 +1,60 @@
+Source: based on gentoo's ocaml-3.10.0-automagic.patch
+Upstream: no
+Reason: allows control over dbm and graph (X11) support
+
+Index: ocaml-3.11.1/configure
+===================================================================
+--- ocaml-3.11.1.orig/configure
++++ ocaml-3.11.1/configure
+@@ -33,6 +33,8 @@
+ x11_lib_dir=''
+ tk_wanted=yes
+ pthread_wanted=yes
++graph_wanted=yes
++dbm_wanted=yes
+ tk_defs=''
+ tk_libs=''
+ tk_x11=yes
+@@ -93,6 +95,10 @@
+         ;; # Ignored for backward compatibility
+     -no-pthread*|--no-pthread*)
+         pthread_wanted=no;;
++    -no-dbm|--no-dbm)
++        dbm_wanted=no;;
++    -no-graph|--no-graph)
++        graph_wanted=no;;
+     -no-tk|--no-tk)
+         tk_wanted=no;;
+     -tkdefs*|--tkdefs*)
+@@ -1318,9 +1324,9 @@
+ done
+ 
+ 
+-if test "$x11_include" = "not found" || test "$x11_link" = "not found"
++if test "$x11_include" = "not found" || test "$x11_link" = "not found" || test "$graph_wanted" = "no"
+ then
+-  echo "X11 not found, the \"graph\" library will not be supported."
++  echo "X11 not found (or excluded by '--no-graph'), the \"graph\" library will not be supported."
+   x11_include=""
+ else
+   echo "Location of X11 include files: $x11_include/X11"
+@@ -1366,8 +1372,8 @@
+     break
+   fi
+ done
+-if test "$dbm_include" = "not found" || test "$dbm_link" = "not found"; then
+-  echo "NDBM not found, the \"dbm\" library will not be supported."
++if test "$dbm_include" = "not found" || test "$dbm_link" = "not found" || test "$dbm_wanted" = "no"; then
++  echo "NDBM not found (or excluded by '--no-dbm'), the \"dbm\" library will not be supported."
+ else
+   echo "NDBM found (in $dbm_include)"
+   if test "$dbm_include" = "/usr/include"; then
+@@ -1644,7 +1650,7 @@
+ echo "Configuration for the \"num\" library:"
+ echo "        target architecture ...... $bng_arch (asm level $bng_asm_level)"
+ 
+-if test "$x11_include" != "not found" && test "$x11_lib" != "not found"; then
++if test "$x11_include" != "not found" && test "$x11_lib" != "not found" && test "$graph_wanted" != "no"; then
+ echo "Configuration for the \"graph\" library:"
+ echo "        options for compiling .... $x11_include"
+ echo "        options for linking ...... $x11_link"
