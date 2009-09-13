@@ -17,7 +17,7 @@ PLATFORMS="~amd64 ~x86 ~ppc"
 
 DEPENDENCIES="
     dev-lang/ocaml
-    dev-lang/ocaml[ocamlopt?] )
+    dev-lang/ocaml[ocamlopt?]
     dev-lang/ocaml[threads?]
     gtk? ( 
         x11-libs/gtk+
