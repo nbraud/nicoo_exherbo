@@ -5,20 +5,23 @@
 
 require flag-o-matic
 
-SLOT="0"
 
 SUMMARY="Caml is a general-purpose programming language, designed with program safety and reliability in mind."
 DESCRIPTION="
-The Objective Caml system is the main implementation of the Caml language. It features a powerful module system and a full-fledged object-oriented layer. It comes with a native-code compiler that supports numerous architectures, for high performance; a bytecode compiler, for increased portability; and an interactive loop, for experimentation and rapid development.
+The Objective Caml system is the main implementation of the Caml language. It features a powerful
+module system and a full-fledged object-oriented layer. It comes with a native-code compiler that
+supports numerous architectures, for high performance; a bytecode compiler, for increased
+portability; and an interactive loop, for experimentation and rapid development.
 "
 HOMEPAGE="http://caml.inria.fr/"
+DOWNLOADS="http://caml.inria.fr/pub/distrib/"${PN}"-"$(ever range 1-2)"/"${PNV}".tar.bz2"
+
+BUGS_TO="fauxmight@nosocomia.com"
+UPSTREAM_DOCUMENTATION="http://caml.inria.fr/resources/doc/index.en.html"
+
+SLOT="0"
 LICENCES="|| ( LGPL-2 QPL-1.0 )"
 PLATFORMS="~amd64 ~x86 ~ppc"
-
-DEPENDENCIES="ncurses? ( sys-libs/ncurses )"
-DOWNLOADS="
-    http://caml.inria.fr/pub/distrib/"${PN}"-"$(ever range 1-2)"/"${PNV}".tar.bz2
-"
 MYOPTIONS="
     X
     ocamlopt [[ description = [ Adds support for OCaml native code compiler ] ]]
@@ -26,10 +29,10 @@ MYOPTIONS="
     ncurses
 "
 
-BUGS_TO="fauxmight@nosocomia.com"
-
-UPSTREAM_DOCUMENTATION="http://caml.inria.fr/resources/doc/index.en.html"
-
+DEPENDENCIES="
+    build+run:
+        ncurses? ( sys-libs/ncurses )
+"
 
 # FIXME - excluded call-ld-with-proper-ldfflags.patch
 #     This was needed in previous versions but appears
