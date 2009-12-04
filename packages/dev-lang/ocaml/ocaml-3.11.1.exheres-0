@@ -3,7 +3,7 @@
 # Based in part on 'ocaml-3.10.2.exheres-0', which is
 #     Copyright 2008 Saleem Abdulrasool <compnerd@compnerd.org>
 
-require flag-o-matic
+require flag-o-matic multilib
 
 
 SUMMARY="Caml is a general-purpose programming language, designed with program safety and reliability in mind."
