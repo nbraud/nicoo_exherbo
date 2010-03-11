@@ -1,0 +1,14 @@
+# Copyright (c) 2010 Jan Meier
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="iodine lets you tunnel IPv4 data through a DNS server."
+LICENCES="ISC"
+HOMEPAGE="http://code.kryo.se/${PN}/"
+DOWNLOADS="${HOMEPAGE}${PNV}.tar.gz"
+SLOT="0"
+PLATFORMS="~x86"
+
+src_install() {
+    dobin bin/{iodine,iodined}
+}
+
