@@ -10,5 +10,6 @@ PLATFORMS="~x86"
 
 src_install() {
     dobin bin/{iodine,iodined}
+    doman man/iodine.8
 }
 
