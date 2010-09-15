@@ -23,7 +23,7 @@ MYOPTIONS="ipv6"
 
 DEPENDENCIES="
     build+run:
-        ssl? ( dev-libs/openssl )
+        dev-libs/openssl
         dev-libs/libnl
 "
 
