@@ -24,7 +24,7 @@ MYOPTIONS="ipv6"
 DEPENDENCIES="
     build+run:
         dev-libs/openssl
-        dev-libs/libnl
+        net-libs/libnl
 "
 
 BUGS_TO="fauxmight@nosocomia.com"
