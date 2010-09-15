@@ -41,7 +41,7 @@ src_configure() {
     local CONFIG="${WORK}/.config"
 
     # toolchain setup
-    echo "CC = $(CC)" > ${CONFIG}
+    echo "CC = ${CC}" > ${CONFIG}
 
     # Reasonable defaults from defconfig
     # If you really don't want SSL, patches are welcome :)
