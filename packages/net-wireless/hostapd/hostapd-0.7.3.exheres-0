@@ -88,6 +88,7 @@ src_install() {
 
     dosbin hostapd
     dobin hostapd_cli
+    dobin nt_password_hash
     dobin hlr_auc_gw
 
     newinitd "${FILES}"/${PN}-init.d hostapd
