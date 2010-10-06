@@ -1,0 +1,31 @@
+Source: ruediger@blueboot.org
+Upstream: no
+Reason: include CFLAGS and LDFLAGS in configure
+
+
+--- ocaml-3.12.0.orig/configure	2010-07-28 15:18:22.000000000 +0200
++++ ocaml-3.12.0/configure	2010-10-06 11:11:42.917000023 +0200
+@@ -329,8 +329,12 @@
+     bytecccompopts="-fno-defer-pop $gcc_warnings";;
+ esac
+ 
+-# Configure compiler to use in further tests
+ 
++bytecccompopts="${CFLAGS} $bytecccompopts"
++bytecclinkopts="${LDFLAGS} $bytecclinkopts"
++
++
++# Configure compiler to use in further tests
+ cc="$bytecc -O $bytecclinkopts"
+ export cc cclibs verbose
+ 
+@@ -737,6 +741,9 @@
+   *,gcc*,*,*)          nativecccompopts="$gcc_warnings";;
+ esac
+ 
++nativecccompopts="${CFLAGS} $nativecccompopts"
++nativecclinkopts="${LDFLAGS} $nativecclinkopts"
++
+ asppprofflags='-DPROFILING'
+ 
+ case "$arch,$model,$system" in
