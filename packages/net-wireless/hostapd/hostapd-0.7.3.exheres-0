@@ -19,7 +19,7 @@ PLATFORMS="~amd64 ~x86"
 # It's ugly, but functions as modeled here.
 
 # If you want wps, madwifi, ssl or debug options, send patches :)
-MYOPTIONS="ipv6"
+MYOPTIONS="baselayout ipv6"
 
 DEPENDENCIES="
     build+run:
@@ -91,8 +91,10 @@ src_install() {
     dobin nt_password_hash
     dobin hlr_auc_gw
 
-    newinitd "${FILES}"/${PN}-init.d hostapd
-    newconfd "${FILES}"/${PN}-conf.d hostapd
+    if  option baselayout ; then
+        newinitd "${FILES}"/${PN}-init.d hostapd
+        newconfd "${FILES}"/${PN}-conf.d hostapd
+    fi
 
     doman hostapd.8 hostapd_cli.1
 
