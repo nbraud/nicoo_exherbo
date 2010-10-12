@@ -35,67 +35,51 @@ DEPENDENCIES="
         tk? ( dev-lang/tk[>=8.2] )
 "
 
-# FIXME - excluded call-ld-with-proper-ldfflags.patch
-#     This was needed in previous versions but appears
-#     to no longer be necessary -- !!VERIFY!!
-
-# FIMXE - todo -- add the pieces of the configure patch from gentoo's
-#                 3.11.1 set
-#         todo -- ONLY filter fomit-frame-pointer during the
-#                 compilation of opt
-
-# FIXME - excluded the exec-stack-fixes.patch and the automagic.patch
-#	  lets get closer to upstream
-
 DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PNV}-configure.patch" )
-
 
 src_configure() {
     # ocamlopt uses -pg. -pg and -fomit-frame-pointer conflict
     option ocamlopt && filter-flags -fomit-frame-pointer
-    ./configure \
-        $(option ncurses || echo "-no-curses") \
-        $(option threads || echo "-no-pthread") \
-	$(option tk || echo "--no-tk")      \
-        --host ${CHOST}                     \
-        --prefix /usr                       \
-        --bindir /usr/bin                   \
-        --libdir /usr/$(get_libdir)/ocaml   \
-        --mandir /usr/share/man || die "configure failed"
-}
 
+    edo ./configure \
+        $(option ncurses || echo "-no-curses")  \
+        $(option threads || echo "-no-pthread") \
+        $(option tk || echo "--no-tk")          \
+        --host ${CHOST}                         \
+        --prefix /usr                           \
+        --bindir /usr/bin                       \
+        --libdir /usr/$(get_libdir)/ocaml       \
+        --mandir /usr/share/man
+}
 
 src_compile() {
     MY_MAKE_TARGET=" world "
     option ocamlopt && MY_MAKE_TARGET+=" opt opt.opt "
-    make $MY_MAKE_TARGET || die "make $MY_MAKE_TARGET failed!"
+    emake ${MY_MAKE_TARGET}
 }
-
 
 src_install() {
     emake BINDIR="${IMAGE}/usr/bin"                 \
           LIBDIR="${IMAGE}/usr/$(get_libdir)/ocaml" \
-          MANDIR="${IMAGE}/usr/share/man" install || die "install failed"
+          MANDIR="${IMAGE}/usr/share/man" install
 
-    #Paludis barfs on installing empty dir ... and man3 is empty if !ocamlopt
-    option ocamlopt || rmdir ${IMAGE}/usr/share/man/man3 || die "Couldn't remove man3 dir"
+    # empty directory
+    edo rmdir "${IMAGE}/usr/$(get_libdir)/ocaml/ocamldoc/custom"
+    # man3 is empty if !ocamlopt
+    option !ocamlopt && edo rmdir ${IMAGE}/usr/share/man/man3
 
-    # Empty directory
-    rmdir "${IMAGE}/usr/$(get_libdir)/ocaml/ocamldoc/custom" || die "Couldn't remove empty dir"
-
-    # Compiler libraries
+    # compiler libraries
     dodir /usr/$(get_libdir)/ocaml/compiler-libs
     insinto /usr/$(get_libdir)/ocaml/compiler-libs
     doins "${WORK}"/{utils,typing,parsing}/*.{mli,cmi,cmo}
-    if option ocamlopt; then
-        #These only exist if native code compiler was built
-        doins "${WORK}"/{utils,typing,parsing}/*.{cmx,o}
-    fi
+    # these only exist if native code compiler was built
+    option ocamlopt && doins "${WORK}"/{utils,typing,parsing}/*.{cmx,o}
 
-    # Headers
+    # headers
     dodir /usr/include
     dosym /usr/$(get_libdir)/ocaml/caml /usr/include
 
-    # Remove references to ${IMAGE} from ld.conf, the build doesnt deal with $(DESTDIR)
-    sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/$(get_libdir)/ocaml/ld.conf" || die "Couldn't remove DESTDIR references from ld.conf"
+    # remove references to ${IMAGE} from ld.conf, the build doesnt deal with $(DESTDIR)
+    edo sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/$(get_libdir)/ocaml/ld.conf"
 }
+
