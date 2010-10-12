@@ -1,0 +1,52 @@
+# Copyright 2009 A Frederick Christensen <fauxmight@nosocomia.com>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part on 'ocaml-3.10.2.exheres-0', which is
+#     Copyright 2008 Saleem Abdulrasool <compnerd@compnerd.org>
+
+SUMMARY="Caml is a general-purpose programming language, designed with program safety and reliability in mind."
+DESCRIPTION="
+The Objective Caml system is the main implementation of the Caml language. It features a powerful
+module system and a full-fledged object-oriented layer. It comes with a native-code compiler that
+supports numerous architectures, for high performance; a bytecode compiler, for increased
+portability; and an interactive loop, for experimentation and rapid development.
+"
+HOMEPAGE="http://caml.inria.fr/"
+DOWNLOADS="http://caml.inria.fr/pub/distrib/"${PN}"-"$(ever range 1-2)"/"${PNV}".tar.bz2"
+
+BUGS_TO="fauxmight@nosocomia.com"
+
+UPSTREAM_DOCUMENTATION="http://caml.inria.fr/resources/doc/index.en.html"
+
+ocaml_src_compile() {
+    MY_MAKE_TARGET=" world "
+    option ocamlopt && MY_MAKE_TARGET+=" opt opt.opt "
+    emake ${MY_MAKE_TARGET}
+}
+
+ocaml_src_install() {
+    emake BINDIR="${IMAGE}/usr/bin"                 \
+          LIBDIR="${IMAGE}/usr/$(get_libdir)/ocaml" \
+          MANDIR="${IMAGE}/usr/share/man" install
+
+    # empty directory
+    edo rmdir "${IMAGE}/usr/$(get_libdir)/ocaml/ocamldoc/custom"
+    # man3 is empty if !ocamlopt
+    option !ocamlopt && edo rmdir ${IMAGE}/usr/share/man/man3
+
+    # compiler libraries
+    dodir /usr/$(get_libdir)/ocaml/compiler-libs
+    insinto /usr/$(get_libdir)/ocaml/compiler-libs
+    doins "${WORK}"/{utils,typing,parsing}/*.{mli,cmi,cmo}
+    # these only exist if native code compiler was built
+    option ocamlopt && doins "${WORK}"/{utils,typing,parsing}/*.{cmx,o}
+
+    # headers
+    dodir /usr/include
+    dosym /usr/$(get_libdir)/ocaml/caml /usr/include
+
+    # remove references to ${IMAGE} from ld.conf, the build doesnt deal with $(DESTDIR)
+    edo sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/$(get_libdir)/ocaml/ld.conf"
+}
+
+export_exlib_phases src_compile src_install
+
