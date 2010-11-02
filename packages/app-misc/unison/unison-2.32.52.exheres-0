@@ -40,6 +40,7 @@ REMOTE_IDS="freshmeat:unison"
 UPSTREAM_CHANGELOG="http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html#news"
 UPSTREAM_DOCUMENTATION="http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html"
 
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PN}-mymap.patch" )
 
 src_compile() {
     NATIVE_BOOL=false
