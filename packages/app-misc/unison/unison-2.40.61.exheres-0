@@ -16,8 +16,6 @@ HOMEPAGE="http://www.cis.upenn.edu/~bcpierce/unison/"
 LICENCES="GPL-3"
 PLATFORMS="~amd64 ~x86 ~ppc"
 
-# FIXME: Add gtk support. This will require a lablgtk exheres, as well
-
 DEPENDENCIES="
     dev-lang/ocaml
     dev-lang/ocaml[ocamlopt?]
@@ -43,8 +41,6 @@ REMOTE_IDS="freshmeat:unison"
 UPSTREAM_CHANGELOG="http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html#news"
 UPSTREAM_DOCUMENTATION="http://www.cis.upenn.edu/~bcpierce/unison/download/releases/stable/unison-manual.html"
 
-DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PN}-mymap.patch" )
-
 src_compile() {
     NATIVE_BOOL=false
     THREADS_BOOL=false
@@ -52,8 +48,10 @@ src_compile() {
     option ocamlopt && NATIVE_BOOL=true
     option threads && THREADS_BOOL=true
     option gtk && UISTYLE_STRING=gtk2
+    # Build fails on 'etags' issue unless mkProjectInfo is made first
+    edo make mkProjectInfo
     # NO CLFAGS -- ocamlc/ocamlopt doesn't know what to do with them
-    make UISTYLE="$UISTYLE_STRING" NATIVE="$NATIVE_BOOL" THREADS="$THREADS_BOOL" CFLAGS="" || die "make failed!"
+    edo make UISTYLE="$UISTYLE_STRING" NATIVE="$NATIVE_BOOL" THREADS="$THREADS_BOOL" CFLAGS=""
 }
 
 
