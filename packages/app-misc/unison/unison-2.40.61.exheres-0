@@ -22,7 +22,7 @@ DEPENDENCIES="
     dev-lang/ocaml[threads?]
     gtk? ( 
         x11-libs/gtk+
-        x11-libs/lablgtk
+        dev-ocaml/lablgtk
         dev-lang/ocaml[tk]
     )
 "
