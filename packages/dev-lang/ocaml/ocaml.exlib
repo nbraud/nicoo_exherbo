@@ -26,27 +26,27 @@ ocaml_src_compile() {
 
 ocaml_src_install() {
     emake BINDIR="${IMAGE}/usr/bin"                 \
-          LIBDIR="${IMAGE}/usr/$(get_libdir)/ocaml" \
+          LIBDIR="${IMAGE}/usr/${LIBDIR}/ocaml" \
           MANDIR="${IMAGE}/usr/share/man" install
 
     # empty directory
-    edo rmdir "${IMAGE}/usr/$(get_libdir)/ocaml/ocamldoc/custom"
+    edo rmdir "${IMAGE}/usr/${LIBDIR}/ocaml/ocamldoc/custom"
     # man3 is empty if !ocamlopt
     option !ocamlopt && edo rmdir ${IMAGE}/usr/share/man/man3
 
     # compiler libraries
-    dodir /usr/$(get_libdir)/ocaml/compiler-libs
-    insinto /usr/$(get_libdir)/ocaml/compiler-libs
+    dodir /usr/${LIBDIR}/ocaml/compiler-libs
+    insinto /usr/${LIBDIR}/ocaml/compiler-libs
     doins "${WORK}"/{utils,typing,parsing}/*.{mli,cmi,cmo}
     # these only exist if native code compiler was built
     option ocamlopt && doins "${WORK}"/{utils,typing,parsing}/*.{cmx,o}
 
     # headers
     dodir /usr/include
-    dosym /usr/$(get_libdir)/ocaml/caml /usr/include
+    dosym /usr/${LIBDIR}/ocaml/caml /usr/include
 
     # remove references to ${IMAGE} from ld.conf, the build doesn't deal with $(DESTDIR)
-    edo sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/$(get_libdir)/ocaml/ld.conf"
+    edo sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/${LIBDIR}/ocaml/ld.conf"
 }
 
 export_exlib_phases src_compile src_install

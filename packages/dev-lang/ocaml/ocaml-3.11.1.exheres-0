@@ -3,11 +3,11 @@
 # Based in part on 'ocaml-3.10.2.exheres-0', which is
 #     Copyright 2008 Saleem Abdulrasool <compnerd@compnerd.org>
 
-require ocaml flag-o-matic multilib
+require ocaml flag-o-matic
 
 SLOT="0"
 LICENCES="|| ( LGPL-2 QPL-1.0 )"
-PLATFORMS="~amd64 ~x86 ~ppc"
+PLATFORMS="~amd64 ~ppc ~x86"
 MYOPTIONS="
     X
     ocamlopt [[ description = [ Adds support for OCaml native code compiler ] ]]
@@ -45,7 +45,7 @@ src_configure() {
         --host ${CHOST}                                         \
         --prefix /usr                                           \
         --bindir /usr/bin                                       \
-        --libdir /usr/$(get_libdir)/ocaml                       \
+        --libdir /usr/${LIBDIR}/ocaml                           \
         --mandir /usr/share/man                                 \
         --no-tk --no-dbm
 }
