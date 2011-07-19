@@ -11,7 +11,7 @@ DESCRIPTION="
 HOMEPAGE="http://hostap.epitest.fi/hostapd/"
 DOWNLOADS="http://hostap.epitest.fi/releases/${PNV}.tar.gz"
 
-LICENCES="|| ( GPL-2 BSD )"
+LICENCES="|| ( GPL-2 BSD-3 )"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
