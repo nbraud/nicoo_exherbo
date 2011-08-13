@@ -32,7 +32,7 @@ ocaml_src_install() {
     # empty directory
     edo rmdir "${IMAGE}/usr/${LIBDIR}/ocaml/ocamldoc/custom"
     # man3 is empty if !ocamlopt
-    option !ocamlopt && edo rmdir ${IMAGE}/usr/share/man/man3
+    option !ocamlopt && edo rmdir "${IMAGE}"/usr/share/man/man3
 
     # compiler libraries
     dodir /usr/${LIBDIR}/ocaml/compiler-libs
