@@ -24,7 +24,7 @@ Reason: include CFLAGS and LDFLAGS in configure
  esac
  
 +nativecccompopts="${CFLAGS} $nativecccompopts"
-+nativecclinkopts="${LDFLAGS} $nativecclinkopts"
++nativecclinkopts="${RAW_LDFLAGS} $nativecclinkopts"
 +
  asppprofflags='-DPROFILING'
  

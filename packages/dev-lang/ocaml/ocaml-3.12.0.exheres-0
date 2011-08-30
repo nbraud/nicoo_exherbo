@@ -29,7 +29,7 @@ src_configure() {
     # ocamlopt uses -pg. -pg and -fomit-frame-pointer conflict
     option ocamlopt && filter-flags -fomit-frame-pointer
 
-    edo ./configure                                             \
+    RAW_LDFLAGS=$(raw-ldflags) edo ./configure                  \
         $(option ncurses || echo "-no-curses")                  \
         $(option threads || echo "-no-pthread")                 \
         $(option tk || echo "--no-tk")                          \
