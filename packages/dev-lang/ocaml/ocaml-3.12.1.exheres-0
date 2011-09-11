@@ -22,8 +22,7 @@ DEPENDENCIES="
         tk? ( dev-lang/tk[>=8.2] )
 "
 
-DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PNV}-configure.patch"
-                              "${FILES}/${PNV}-ocamlopt-binutils-2.21.patch" )
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PNV}-configure.patch" )
 
 src_configure() {
     # ocamlopt uses -pg. -pg and -fomit-frame-pointer conflict
