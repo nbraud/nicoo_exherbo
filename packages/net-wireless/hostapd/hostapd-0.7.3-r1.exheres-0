@@ -24,7 +24,7 @@ MYOPTIONS="baselayout ipv6"
 DEPENDENCIES="
     build+run:
         dev-libs/openssl
-        net-libs/libnl
+        net-libs/libnl:1
 "
 
 BUGS_TO="fauxmight@nosocomia.com"
@@ -65,6 +65,7 @@ src_configure() {
     # Again, if you wish to option these, patch away.
 
     echo "CONFIG_DRIVER_NL80211=y" >> ${CONFIG}
+    has_version --root "net-libs/libnl:1[>=2]" && echo "CONFIG_LIBNL20=y" >> ${CONFIG}
     echo "CONFIG_IEEE80211N=y" >> ${CONFIG}
 
     option ipv6 && echo "CONFIG_IPV6=y" >> ${CONFIG}
