@@ -1,9 +1,9 @@
 # What ?
-This is a repossitory where I'll put Exherbo packages I write, and hopefully maintain them.
+This is a repository where I'll put Exherbo packages I write, and hopefully maintain them.
 
 # Why ?
-Because they are usefull, at least for me.
-Because someone else might find them usefull.
+Because they are useful, at least for me.
+Because someone else might find them useful.
 
 # Who ?
 Nicolas Braud-Santoni (*nicoo* on freenode/#exherbo).
