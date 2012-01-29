@@ -18,7 +18,8 @@ BUGS_TO="fauxmight@nosocomia.com"
 UPSTREAM_DOCUMENTATION="http://caml.inria.fr/resources/doc/index.en.html"
 
 ocaml_src_compile() {
-    emake world
+    # parallel builds are broken so often, its not even worth trying anymore
+    emake -j1 world
 
     # Parallel build fails when building ocamlopt
     option ocamlopt && emake -j1 opt opt.opt
