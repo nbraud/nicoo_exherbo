@@ -33,9 +33,3 @@ src_install() {
     dodoc README.txt
 }
 
-#src_unpack() {
-#    pushd "${FETCHEDDIR}"
-#    edo unzip -d "${WORK}" ${ARCHIVES}
-#    popd
-#}
-
