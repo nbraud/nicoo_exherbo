@@ -2,6 +2,7 @@
 # Distributed under the terms of the ISC license
 
 FONT="${PN}"
+FILE="${PN}-$(ever range -2 ${V})"
 
 require xfont
 
@@ -11,7 +12,7 @@ Anonymous Pro (2009) is a family of four fixed-width fonts designed especially w
 "
 HOMEPAGE="http://www.ms-studio.com/FontSales/anonymouspro.html [[ description = [ Upstream homepage ] ]]"
 
-DOWNLOADS="http://www.ms-studio.com/FontSales/AnonymousPro-1.002.zip"
+DOWNLOADS="http://www.ms-studio.com/FontSales/$FILE.zip"
 
 LICENCES="OFL-1.0"
 SLOT="0"
@@ -27,14 +28,14 @@ WORK=${WORKBASE}/${PNV}
 
 src_install() {
     insinto /usr/share/fonts/X11/${FONT}/
-    doins "${WORK}"/*/*.ttf
+    doins "${WORK}"/*.ttf
 
-    dodoc */README.txt
+    dodoc README.txt
 }
 
-src_unpack() {
-    pushd "${FETCHEDDIR}"
-    edo unzip -d "${WORK}" ${ARCHIVES}
-    popd
-}
+#src_unpack() {
+#    pushd "${FETCHEDDIR}"
+#    edo unzip -d "${WORK}" ${ARCHIVES}
+#    popd
+#}
 
