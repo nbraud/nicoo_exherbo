@@ -1,0 +1,40 @@
+# Copyright 2012 Nicolas Braud-Santoni
+# Distributed under the terms of the ISC license
+
+FONT="${PN}"
+
+require xfont
+
+SUMMARY="Fixed-width fonts designed for coding"
+DESCRIPTION="
+Anonymous Pro (2009) is a family of four fixed-width fonts designed especially with coding in mind. Characters that could be mistaken for one another (O, 0, I, l, 1, etc.) have distinct shapes to make them easier to tell apart in the context of source code.
+"
+HOMEPAGE="http://www.ms-studio.com/FontSales/anonymouspro.html [[ description = [ Upstream homepage ] ]]"
+
+DOWNLOADS="http://www.ms-studio.com/FontSales/AnonymousPro-1.002.zip"
+
+LICENCES="OFL-1.0"
+SLOT="0"
+PLATFORMS="~amd64 ~ppc64 ~x86"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        app-arch/zip
+"
+
+WORK=${WORKBASE}/${PNV}
+
+src_install() {
+    insinto /usr/share/fonts/X11/${FONT}/
+    doins "${WORK}"/*/*.ttf
+
+    dodoc */README.txt
+}
+
+src_unpack() {
+    pushd "${FETCHEDDIR}"
+    edo unzip -d "${WORK}" ${ARCHIVES}
+    popd
+}
+
