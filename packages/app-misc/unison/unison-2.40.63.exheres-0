@@ -56,7 +56,7 @@ src_compile() {
 
 
 src_test() {
-    emake selftest || die "selftest failed!"
+    emake selftest CFLAGS="" || die "selftest failed!"
 }
 
 
