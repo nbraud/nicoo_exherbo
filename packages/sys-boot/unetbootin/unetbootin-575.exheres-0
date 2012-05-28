@@ -19,12 +19,10 @@ PLATFORMS="~amd64"
 DEPENDENCIES="
     recommendation:
         base/syslinux [[
-            description = [ Lightweight bootloaders ]
-            note = [ Required for FAT32 and EXT2 formatted USB drive install mode ]
+            description = [ Required for FAT32 and EXT2 formatted USB drive install mode ]
         ]]
         sys-fs/mtools [[
-            description = [ Utilities to access MS-DOS disks from Unix without mounting them ]
-            note = [ Required for Arch Linux install mode which depends upon mlabel ]
+            description = [ Required for Arch Linux install mode which depends upon mlabel ]
         ]]
 "
 WORK="${WORKBASE}"
