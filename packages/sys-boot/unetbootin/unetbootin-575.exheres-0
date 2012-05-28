@@ -29,16 +29,12 @@ DEPENDENCIES="
 "
 WORK="${WORKBASE}"
 
-QMAKE4_SRC_CONFIGURE_PARAMS="DEFINES += NOSTATIC" "RESOURCES -= unetbootin.qrc"
-
 src_configure() {
     # Configure http://sourceforge.net/apps/trac/unetbootin/wiki/compile
-    sed -i '/^RESOURCES/d' unetbootin.pro
-    lupdate unetbootin.pro
-    lrelease unetbootin.pro
-    qmake "DEFINES += NOSTATIC" "RESOURCES -= unetbootin.qrc"
-
-    default
+    edo sed -i '/^RESOURCES/d' unetbootin.pro
+    edo lupdate unetbootin.pro
+    edo lrelease unetbootin.pro
+    eqmake4 "DEFINES += NOSTATIC" "RESOURCES -= unetbootin.qrc"
 }
 
 
