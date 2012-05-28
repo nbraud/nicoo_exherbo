@@ -10,9 +10,9 @@ without burning a CD. You can either let UNetbootin download one of the many dis
 out-of-the-box for you, or supply your own Linux .iso file if you've already downloaded one or your
 preferred distribution isn't on the list."
 
-LINGUAS="am ar ast be bg bn ca cs da de el eo es et eu fi fo fr gl he hr hu id it ja lt lv ml ms
-    nan nb nl nn pl pt pt_BR ro ru sk sl sr sv sw tr uk ur vi zh_CN zh_TW"
-MYOPTIONS="linguas: ( "${LINGUAS}" )"
+UNETBOOTIN_LINGUAS="am ar ast be bg bn ca cs da de el eo es et eu fi fo fr gl he hr hu id it ja lt
+    lv ml ms nan nb nl nn pl pt pt_BR ro ru sk sl sr sv sw tr uk ur vi zh_CN zh_TW"
+MYOPTIONS="linguas: ( "${UNETBOOTIN_LINGUAS}" )"
 SLOT="0"
 LICENCES="GPL-2"
 PLATFORMS="~amd64"
@@ -54,7 +54,7 @@ src_install() {
 
     # Install linguas
     insinto /usr/share/${PN}
-    for lang in ${LINGUAS} ; do
+    for lang in ${UNETBOOTIN_LINGUAS} ; do
         option "linguas:${lang}" && doins "${WORK}"/${PN}_${lang}.qm
     done
 }
