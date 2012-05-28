@@ -12,7 +12,7 @@ preferred distribution isn't on the list."
 
 UNETBOOTIN_LINGUAS="am ar ast be bg bn ca cs da de el eo es et eu fi fo fr gl he hr hu id it ja lt
     lv ml ms nan nb nl nn pl pt pt_BR ro ru sk sl sr sv sw tr uk ur vi zh_CN zh_TW"
-MYOPTIONS="linguas: ( "${UNETBOOTIN_LINGUAS}" )"
+MYOPTIONS="linguas: ( ${UNETBOOTIN_LINGUAS} )"
 SLOT="0"
 LICENCES="GPL-2"
 PLATFORMS="~amd64"
