@@ -26,6 +26,7 @@ DEPENDENCIES="
         ]]
 "
 WORK="${WORKBASE}"
+QMAKE4_SRC_CONFIGURE_PARAMS=( "DEFINES += NOSTATIC" "RESOURCES -= unetbootin.qrc" )
 
 src_prepare() {
     # Configure http://sourceforge.net/apps/trac/unetbootin/wiki/compile
@@ -33,8 +34,6 @@ src_prepare() {
     edo lupdate unetbootin.pro
     edo lrelease unetbootin.pro
 }
-
-QMAKE4_SRC_CONFIGURE_PARAMS=( "DEFINES += NOSTATIC" "RESOURCES -= unetbootin.qrc" )
 
 src_install() {
     # Install the binary
