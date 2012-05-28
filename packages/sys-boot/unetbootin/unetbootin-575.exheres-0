@@ -1,0 +1,64 @@
+# Copyright 2012 Lasse Brun <bruners@gmail.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge [ pnv="${PN}-source-${PV}" suffix="tar.gz" ]
+require freedesktop-desktop gtk-icon-cache qmake4
+
+SUMMARY="GUI for making bootable USB drives"
+DESCRIPTION="UNetbootin allows you to create bootable Live USB drives for most Linux distributions
+without burning a CD. You can either let UNetbootin download one of the many distributions supported
+out-of-the-box for you, or supply your own Linux .iso file if you've already downloaded one or your
+preferred distribution isn't on the list."
+
+LINGUAS="am ar ast be bg bn ca cs da de el eo es et eu fi fo fr gl he hr hu id it ja lt lv ml ms
+    nan nb nl nn pl pt pt_BR ro ru sk sl sr sv sw tr uk ur vi zh_CN zh_TW"
+MYOPTIONS="linguas: ( "${LINGUAS}" )"
+SLOT="0"
+LICENCES="GPL-2"
+PLATFORMS="~amd64"
+DEPENDENCIES="
+    recommendation:
+        base/syslinux [[
+            description = [ Lightweight bootloaders ]
+            note = [ Required for FAT32 and EXT2 formatted USB drive install mode ]
+        ]]
+        sys-fs/mtools [[
+            description = [ Utilities to access MS-DOS disks from Unix without mounting them ]
+            note = [ Required for Arch Linux install mode which depends upon mlabel ]
+        ]]
+"
+WORK="${WORKBASE}"
+
+QMAKE4_SRC_CONFIGURE_PARAMS="DEFINES += NOSTATIC" "RESOURCES -= unetbootin.qrc"
+
+src_configure() {
+    # Configure http://sourceforge.net/apps/trac/unetbootin/wiki/compile
+    sed -i '/^RESOURCES/d' unetbootin.pro
+    lupdate unetbootin.pro
+    lrelease unetbootin.pro
+    qmake "DEFINES += NOSTATIC" "RESOURCES -= unetbootin.qrc"
+
+    default
+}
+
+
+src_install() {
+    # Install the binary
+    dobin ${PN}
+
+    # Install the desktop shortcut
+    insinto /usr/share/applications
+    doins ${PN}.desktop
+
+    # Install icons
+    for size in 14 16 22 24 32 48 64 128 256 ; do
+        insinto /usr/share/icons/hicolor/${size}x${size}/apps
+        newins "${WORK}"/${PN}_${size}.png ${PN}.png
+    done
+
+    # Install linguas
+    insinto /usr/share/${PN}
+    for lang in ${LINGUAS} ; do
+        option "linguas:${lang}" && doins "${WORK}"/${PN}_${lang}.qm
+    done
+}
