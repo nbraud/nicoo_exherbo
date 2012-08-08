@@ -3,40 +3,10 @@
 # Based in part on 'ocaml-3.10.2.exheres-0', which is
 #     Copyright 2008 Saleem Abdulrasool <compnerd@compnerd.org>
 
-require ocaml flag-o-matic
+require ocaml
 
 SLOT="0"
-LICENCES="|| ( LGPL-2 QPL-1.0 )"
 PLATFORMS="~amd64 ~ppc ~x86"
-MYOPTIONS="
-    X
-    ocamlopt [[ description = [ Adds support for OCaml native code compiler ] ]]
-    threads
-    ncurses
-    tk
-"
-
-DEPENDENCIES="
-    build+run:
-        ncurses? ( sys-libs/ncurses )
-        tk? ( dev-lang/tk[>=8.2] )
-"
 
 DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PNV}-configure.patch" )
-
-src_configure() {
-    # ocamlopt uses -pg. -pg and -fomit-frame-pointer conflict
-    option ocamlopt && filter-flags -fomit-frame-pointer
-
-    RAW_LDFLAGS=$(raw-ldflags) edo ./configure                  \
-        $(option ncurses || echo "-no-curses")                  \
-        $(option threads || echo "-no-pthread")                 \
-        $(option tk || echo "--no-tk")                          \
-        $(option tk && option X || echo "--tk-no-x11")          \
-        --host ${CHOST}                                         \
-        --prefix /usr                                           \
-        --bindir /usr/bin                                       \
-        --libdir /usr/${LIBDIR}/ocaml                           \
-        --mandir /usr/share/man
-}
 
