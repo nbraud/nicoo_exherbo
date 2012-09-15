@@ -14,12 +14,12 @@ DEPENDENCIES="
     build+run:
       app-text/poppler[glib]
       base/libgee
-      dev-libs/glib
-      gnome-desktop/librsvg
+      dev-libs/glib:2
+      gnome-desktop/librsvg:2
       x11-libs/gtk+:2
 
     build:
       dev-util/pkg-config
-      dev-lang/vala[>=0.11]
+      dev-lang/vala:*[>=0.11]
 "
 
