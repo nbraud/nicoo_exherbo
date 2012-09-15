@@ -1,0 +1,25 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the ISC licence
+
+require github [ user=davvil suffix=tgz ] cmake
+
+HOMEPAGE="http://davvil.github.com/pdfpc/"
+SUMMARY="GTK-based presentation viewer, with Keynote-like multi-monitor output to provide meta-information to the speaker"
+
+LICENCES="GPL-2"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+      app-text/poppler[glib]
+      base/libgee
+      dev-libs/glib
+      gnome-desktop/librsvg
+      x11-libs/gtk+:2
+
+    build:
+      dev-util/pkg-config
+      dev-lang/vala[>=0.11]
+"
+
