@@ -1,0 +1,45 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the ISC licence
+
+HOMEPAGE="http://coq.inria.fr/"
+SUMMARY="
+Coq is a formal proof management system. It provides a formal language to write mathematical definitions, executable algorithms and theorems together with an environment for semi-interactive development of machine-checked proofs.
+"
+
+LICENCES="LGPL-2.1"
+SLOT="0"
+MYOPTIONS="
+    camlp5 [[ description = [ Compile Coq with camlp5 support ] ]]
+    gtk
+    ocamlopt
+"
+
+DEPENDENCIES="
+    build+run:
+      dev-lang/ocaml[ocamlopt?]
+      gtk? ( dev-ocaml/lablgtk )
+      camlp5? ( dev-ocaml/camlp5 )
+"
+
+coq_src_configure() {
+    local CONFIG
+    CONFIG="--prefix /usr --libdir /usr/lib64 "
+#   CONFIG="--prefix /usr "
+
+    (option gtk && CONFIG+="--lablgtkdir /usr/lib/ocaml/lablgtk2/ ") || CONFIG+="--coqide no "
+
+#    option camlp5 &&
+
+    option ocamlopt && CONFIG+="--opt "
+
+    ${WORK}/configure $CONFIG
+}
+
+coq_src_install() {
+    emake COQINSTALLPREFIX=${IMAGE} install
+#    edo rmdir ${IMAGE}/lib64/user-contrib
+}
+
+
+export_exlib_phases src_configure src_install
+

@@ -1,0 +1,9 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the ISC licence
+
+require coq
+
+PLATFORMS="~amd64"
+
+DOWNLOADS="http://coq.inria.fr/distrib/V${PV}/files/${PNV}.tar.gz"
+
