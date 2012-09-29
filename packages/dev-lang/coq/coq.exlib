@@ -26,7 +26,6 @@ DEPENDENCIES="
 coq_src_configure() {
     local CONFIG
     CONFIG="--prefix /usr --libdir ${LIBDIR} "
-#   CONFIG="--prefix /usr "
 
     (option gtk && CONFIG+="--lablgtkdir /usr/lib/ocaml/lablgtk2/ ") || CONFIG+="--coqide no "
 
