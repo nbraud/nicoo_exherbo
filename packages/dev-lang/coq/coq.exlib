@@ -38,7 +38,7 @@ coq_src_configure() {
 
 coq_src_install() {
     emake COQINSTALLPREFIX=${IMAGE} install
-#    edo rmdir ${IMAGE}/lib64/user-contrib
+    edo rmdir ${IMAGE}/usr/${LIBDIR}/user-contrib
 }
 
 
