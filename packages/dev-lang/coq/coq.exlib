@@ -2,8 +2,10 @@
 # Distributed under the terms of the ISC licence
 
 HOMEPAGE="http://coq.inria.fr/"
-SUMMARY="
-Coq is a formal proof management system. It provides a formal language to write mathematical definitions, executable algorithms and theorems together with an environment for semi-interactive development of machine-checked proofs.
+SUMMARY="A proof assistant"
+DESCRIPTION="
+Coq is a formal proof management system.
+It provides a formal language to write mathematical definitions, executable algorithms and theorems together with an environment for semi-interactive development of machine-checked proofs.
 "
 
 LICENCES="LGPL-2.1"
@@ -23,7 +25,7 @@ DEPENDENCIES="
 
 coq_src_configure() {
     local CONFIG
-    CONFIG="--prefix /usr --libdir /usr/lib64 "
+    CONFIG="--prefix /usr --libdir ${LIBDIR} "
 #   CONFIG="--prefix /usr "
 
     (option gtk && CONFIG+="--lablgtkdir /usr/lib/ocaml/lablgtk2/ ") || CONFIG+="--coqide no "
@@ -32,7 +34,7 @@ coq_src_configure() {
 
     option ocamlopt && CONFIG+="--opt "
 
-    ${WORK}/configure $CONFIG
+    edo ./configure $CONFIG
 }
 
 coq_src_install() {
