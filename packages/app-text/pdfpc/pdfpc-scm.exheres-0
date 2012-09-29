@@ -3,6 +3,7 @@
 
 SCM_Vala_CMake_REPOSITORY="git://github.com/jakobwesthoff/Vala_CMake.git"
 SCM_EXTERNAL_REFS="cmake/Vala_CMake:Vala_CMake"
+SCM_SECONDARY_REPOSITORIES="Vala_CMake"
 
 require pdfpc
 
