@@ -10,7 +10,7 @@ SUMMARY="Free, versatile OpenType fonts by Adobe"
 DESCRIPTION="
 Source Sans is a set of OpenType fonts that have been designed to work well in user interface (UI) environments, as well as in text setting for screen and print.
 "
-HOMEPAGE="http://sourceforge.net/projects/sourcesans.adobe/ [[ description = [ Sourceforge project ] ]]"
+HOMEPAGE="http://sourceforge.net/projects/${SFPROJECT}/ [[ description = [ Sourceforge project ] ]]"
 
 LICENCES="OFL-1.1"
 SLOT="0"
