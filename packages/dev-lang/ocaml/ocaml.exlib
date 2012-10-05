@@ -18,7 +18,7 @@ MY_PNV=${PN}-$(ever replace 3 +)
 DOWNLOADS="http://caml.inria.fr/pub/distrib/"${PN}"-"$(ever range 1-2)"/"${MY_PNV}".tar.bz2"
 WORK=${WORKBASE}/${MY_PNV}
 
-BUGS_TO="fauxmight@nosocomia.com"
+BUGS_TO="fauxmight@nosocomia.com nicolas@braud-santoni.eu"
 
 UPSTREAM_DOCUMENTATION="http://caml.inria.fr/resources/doc/index.en.html"
 
