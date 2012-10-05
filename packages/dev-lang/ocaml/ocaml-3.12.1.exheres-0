@@ -1,8 +1,3 @@
-# Copyright 2009 A Frederick Christensen <fauxmight@nosocomia.com>
-# Distributed under the terms of the GNU General Public License v2
-# Based in part on 'ocaml-3.10.2.exheres-0', which is
-#     Copyright 2008 Saleem Abdulrasool <compnerd@compnerd.org>
-
 require ocaml
 
 SLOT="0"
