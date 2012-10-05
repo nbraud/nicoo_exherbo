@@ -1,6 +1,3 @@
-# Copyright 2012 Nicolas Braud-Santoni
-# Distributed under the terms of the ISC license
-
 FILE="${PN}-$(ever range -2)"
 
 require xfont
