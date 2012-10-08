@@ -1,3 +1,6 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the ISC licence
+
 SCM_REPOSITORY="svn://scm.gforge.inria.fr/svn/coq/"
 require coq scm-svn
 

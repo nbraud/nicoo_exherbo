@@ -1,3 +1,6 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the ISC licence
+
 require pdfpc
 
 PLATFORMS="~amd64"
