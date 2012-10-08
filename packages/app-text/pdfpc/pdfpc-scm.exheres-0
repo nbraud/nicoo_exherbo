@@ -1,5 +1,5 @@
 # Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
-# Distributed under the terms of the ISC licence
+# Distributed under the terms of the GNU General Public License v2
 
 SCM_Vala_CMake_REPOSITORY="git://github.com/jakobwesthoff/Vala_CMake.git"
 SCM_EXTERNAL_REFS="cmake/Vala_CMake:Vala_CMake"

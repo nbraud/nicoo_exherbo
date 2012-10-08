@@ -1,4 +1,4 @@
-# Distributed under the terms of the ISC license
+# Distributed under the terms of the GNU General Public License v2
 # Copyright 2012 Nicolas Braud-Santoni   <nicolas@braud-santoni.eu>
 
 require ocaml
