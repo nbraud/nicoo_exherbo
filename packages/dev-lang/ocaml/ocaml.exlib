@@ -15,7 +15,7 @@ HOMEPAGE="http://caml.inria.fr/"
 LICENCES="|| ( LGPL-2 QPL-1.0 )"
 
 MY_PNV=${PN}-$(ever replace 3 +)
-DOWNLOADS="http://caml.inria.fr/pub/distrib/"${PN}"-"$(ever range 1-2)"/"${MY_PNV}".tar.bz2"
+DOWNLOADS="http://caml.inria.fr/pub/distrib/${PN}-$(ever range 1-2)/${MY_PNV}.tar.bz2"
 WORK=${WORKBASE}/${MY_PNV}
 
 BUGS_TO="fauxmight@nosocomia.com nicolas@braud-santoni.eu"
