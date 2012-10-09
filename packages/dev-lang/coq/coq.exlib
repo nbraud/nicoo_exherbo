@@ -27,7 +27,7 @@ coq_src_configure() {
     local CONFIG
     CONFIG="--prefix /usr --libdir /usr/${LIBDIR} "
 
-    (option gtk && CONFIG+="--lablgtkdir /usr/lib/ocaml/lablgtk2/ ") || CONFIG+="--coqide no "
+    option gtk && CONFIG+="--lablgtkdir /usr/lib/ocaml/lablgtk2/ " || CONFIG+="--coqide no "
 
 #    option camlp5 &&
 
@@ -37,8 +37,8 @@ coq_src_configure() {
 }
 
 coq_src_install() {
-    emake COQINSTALLPREFIX=${IMAGE} install
-    edo rmdir ${IMAGE}/usr/${LIBDIR}/user-contrib
+    emake COQINSTALLPREFIX="${IMAGE}" install
+    edo rmdir "${IMAGE}/usr/${LIBDIR}/user-contrib"
 }
 
 
