@@ -6,10 +6,12 @@ require flag-o-matic
 
 SUMMARY="Caml is a general-purpose programming language, designed with program safety and reliability in mind."
 DESCRIPTION="
-The Objective Caml system is the main implementation of the Caml language. It features a powerful
-module system and a full-fledged object-oriented layer. It comes with a native-code compiler that
-supports numerous architectures, for high performance; a bytecode compiler, for increased
-portability; and an interactive loop, for experimentation and rapid development.
+The Objective Caml system is the main implementation of the Caml language.
+It features a powerful module system and a full-fledged object-oriented layer.
+
+It comes with a native-code compiler that supports numerous architectures, for high performance;
+a bytecode compiler, for increased portability;
+and an interactive loop, for experimentation and rapid development.
 "
 HOMEPAGE="http://caml.inria.fr/"
 LICENCES="|| ( LGPL-2 QPL-1.0 )"
