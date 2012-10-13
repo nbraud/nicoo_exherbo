@@ -5,7 +5,9 @@ HOMEPAGE="http://coq.inria.fr/"
 SUMMARY="A proof assistant"
 DESCRIPTION="
 Coq is a formal proof management system.
-It provides a formal language to write mathematical definitions, executable algorithms and theorems together with an environment for semi-interactive development of machine-checked proofs.
+It provides a formal language to write mathematical definitions, executable
+ algorithms and theorems together with an environment for semi-interactive
+development of machine-checked proofs.
 "
 
 LICENCES="LGPL-2.1"
