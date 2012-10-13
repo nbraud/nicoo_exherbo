@@ -6,12 +6,14 @@ require sourceforge [ suffix=tar.gz ]
 SUMMARY="Write Microsoft-compatible MBR"
 DESCRIPTION="
 This is a Linux program for writing Microsoft compatible boot records.
-The program does the same as Microsoft's 'fdisk /mbr' to a hard disk or 'sys d:' to a floppy or FAT partition except that it does not copy any system files, only the boot record is written.
+The program does the same as Microsoft's 'fdisk /mbr' to a hard disk or 'sys d:'
+to a floppy or FAT partition, except that it does not copy any system files,
+only the boot record is written.
 "
 
 LICENCES="GPL-1"
 SLOT="0"
 MYOPTIONS=""
 
-DEFAULT_SRC_INSTALL_PARAMS+="PREFIX=/usr"
+DEFAULT_SRC_INSTALL_PARAMS=( PREFIX="/usr" )
 
