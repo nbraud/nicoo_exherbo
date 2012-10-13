@@ -33,7 +33,7 @@ coq_src_configure() {
 
     option ocamlopt && CONFIG+="--opt "
 
-    edo ./configure $CONFIG
+    edo ./configure ${CONFIG}
 }
 
 coq_src_install() {
