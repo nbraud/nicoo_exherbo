@@ -4,7 +4,10 @@
 require github [ user=davvil suffix=tgz ] cmake
 
 HOMEPAGE="http://davvil.github.com/pdfpc/"
-SUMMARY="GTK-based presentation viewer, with Keynote-like multi-monitor output to provide meta-information to the speaker"
+SUMMARY="GTK-based presentation viewer, with multi-screen support."
+DESCRIPTION="
+pdfpc is a GTK based presentation viewer application for GNU/Linux which uses multi-monitor output to provide meta information to the speaker during the presentation.
+"
 
 LICENCES="GPL-2"
 SLOT="0"
