@@ -1,0 +1,21 @@
+# Copyright 2012 Nicolas Braud-Santoni
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge [ project=${PN} pn=${PN}-sources suffix=tar.gz ]
+
+SUMMARY="Monitor calibration loader for X.org"
+DESCRIPTION="
+ICC profiles can now be used with LCMS, Marti's ICC library.
+Some applications can already apply profiles (even display profiles) but they
+often use standard monitor profiles or custom profiles created for
+a calibrated monitor.
+"
+
+LICENCES="GPL-1"
+SLOT="0"
+MYOPTIONS=""
+
+#TODO: Fix dependencies
+
+DEFAULT_SRC_INSTALL_PARAMS=( PREFIX="/usr" )
+
