@@ -1,0 +1,24 @@
+Source: Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+Upstream: no
+Reason: makefile used hard-coded values for PREFIX and CC
+
+--- sloccount-2.26.orig/makefile	2004-08-01 20:52:06.000000000 +0200
++++ sloccount-2.26/makefile	2012-10-23 23:42:05.885797876 +0200
+@@ -28,7 +28,7 @@
+ # Set this for where to store the man pages and executables.
+ # If you want to store this as part of an official distribution,
+ # change this to "/usr":
+-PREFIX=/usr/local
++PREFIX ?= /usr/local
+ 
+ # Set "EXE_SUFFIX" to ".exe" if you're running on Windows, like this:
+ # EXE_SUFFIX=.exe
+@@ -37,7 +37,7 @@
+ # Set this to your C compiler, if it's not "gcc"; a likely alternative is "cc".
+ # The "-Wall" option turns on warnings in gcc.  gcc users might also want
+ # to consider using "-Werror", which turns warnings into errors.
+-CC=gcc -Wall
++CC ?= gcc -Wall
+ 
+ # Set this to the name of your "install" program.  On some systems,
+ # "install -C" would be useful (so unchanged files won't be modified),

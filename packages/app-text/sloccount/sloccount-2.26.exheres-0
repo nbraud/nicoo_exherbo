@@ -1,0 +1,28 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+PLATFORMS="~amd64 ~x86"
+DOWNLOADS="http://www.dwheeler.com/${PN}/${PNV}.tar.gz"
+
+HOMEPAGE="http://www.dwheeler.com/${PN}/"
+SUMMARY="Simple lines-of-code counter"
+DESCRIPTION="
+SLOCCount is a set of tools for counting physical Source Lines of Code (SLOC) in a large number of languages of a potentially large set of programs.
+"
+
+LICENCES="GPL-2"
+SLOT="0"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build+run:
+        dev-lang/perl
+"
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PNV}-makefile-fix.patch" )
+
+src_install() {
+    edo mkdir -p ${IMAGE}/usr/{bin,share/{man,doc}}
+    emake -j1 "PREFIX=${IMAGE}/usr" install
+}
+
