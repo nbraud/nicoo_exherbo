@@ -9,3 +9,8 @@ require pdfpc
 
 PLATFORMS="~amd64"
 
+DEPENDENCIES+="
+    build+run:
+        media-libs/gstreamer:0.10
+"
+
