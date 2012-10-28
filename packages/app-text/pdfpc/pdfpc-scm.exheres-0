@@ -10,7 +10,14 @@ require pdfpc
 PLATFORMS="~amd64"
 
 DEPENDENCIES+="
+    build:
+      dev-lang/vala:*[>=0.16]
+
     build+run:
+        base/libgee:1.0
         media-libs/gstreamer:0.10
+        media-plugins/gst-plugins-base:0.10
+        x11-libs/gdk-pixbuf:2.0
+        x11-libs/gtk+:2
 "
 
