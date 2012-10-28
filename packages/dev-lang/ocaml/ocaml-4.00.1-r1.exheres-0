@@ -6,7 +6,7 @@ require ocaml
 SLOT="0"
 PLATFORMS="~amd64 ~ppc ~x86"
 
-MYOPTIONS+="
+MYOPTIONS="
     short-types [[ description = [ Use J. Garrigue's patch to the type pretty-printer ] ]]
 "
 
