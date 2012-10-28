@@ -1,0 +1,17 @@
+Title: OCaml : introducing short-types option
+Author: Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+Content-Type: text/plain
+Posted: 2012-10-28
+Revision: 2
+News-Item-Format: 1.0
+Display-If-Installed: dev-lang/ocaml
+
+Jacques Garrigues introduced a new branch of the OCaml compiler and runtime,
+named short-paths, which uses an heuristic to display shorter type paths in
+presence of type synonyms.
+
+dev-lang/ocaml::nicoo now has a short-types option to enable the corresponding
+patch.
+
+For more information, read
+https://sympa.inria.fr/sympa/arc/caml-list/2012-10/msg00195.html

@@ -1,0 +1,16 @@
+# Distributed under the terms of the ISC License
+# Copyright 2012 Nicolas Braud-Santoni   <nicolas@braud-santoni.eu>
+
+require ocaml
+
+SLOT="0"
+PLATFORMS="~amd64 ~ppc ~x86"
+
+MYOPTIONS+="
+    short-types [[ description = [ Use J. Garrigue's patch to the type pretty-printer ] ]]
+"
+
+src_prepare() {
+    option short-types && expatch -p1 ${FILES}/${PNV}-short-types.patch
+}
+

@@ -1,8 +1,0 @@
-# Distributed under the terms of the ISC License
-# Copyright 2012 Nicolas Braud-Santoni   <nicolas@braud-santoni.eu>
-
-require ocaml
-
-SLOT="0"
-PLATFORMS="~amd64 ~ppc ~x86"
-
