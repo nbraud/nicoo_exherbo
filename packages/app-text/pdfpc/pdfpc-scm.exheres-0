@@ -9,7 +9,7 @@ require pdfpc
 
 PLATFORMS="~amd64"
 
-DEPENDENCIES+="
+DEPENDENCIES="
     build:
       dev-lang/vala:*[>=0.16]
 
