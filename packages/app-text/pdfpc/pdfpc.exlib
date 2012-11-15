@@ -21,7 +21,7 @@ DEPENDENCIES="
 
     build+run:
       app-text/poppler[glib]
-      base/libgee
+      base/libgee:1.0
       dev-libs/glib:2
       gnome-desktop/librsvg:2
       x11-libs/gtk+:2
