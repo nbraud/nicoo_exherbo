@@ -1,0 +1,38 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+PLATFORMS="~amd64 ~x86"
+DOWNLOADS="http://www.cl.cam.ac.uk/~pes20/ott/ott_distro_${PV}.tar.gz"
+
+HOMEPAGE="http://www.cl.cam.ac.uk/~pes20/ott/"
+SUMMARY="A semantics description language"
+DESCRIPTION="
+Ott is a tool for writing definitions of programming languages and calculi.
+It takes as input a definition of a language syntax and semantics, in a concise
+and readable ASCII notation that is close to what one would write in informal
+mathematics. It generates LaTeX to build a typeset version of the definition,
+and Coq, HOL, and Isabelle versions of the definition.
+"
+
+LICENCES="BSD-3"
+SLOT="0"
+
+DEPENDENCIES="
+    build+run:
+      dev-lang/ocaml[>=3.10]
+
+    suggestion:
+      dev-lang/coq
+"
+
+src_compile() {
+    emake world
+}
+
+src_install() {
+    edo mkdir -p ${IMAGE}/usr/bin/
+    edo install bin/* ${IMAGE}/usr/bin/
+}
+
+WORK=${WORKBASE}/ott_distro_${PV}
+
