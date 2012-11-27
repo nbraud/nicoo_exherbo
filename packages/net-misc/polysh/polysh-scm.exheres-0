@@ -1,0 +1,8 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+SCM_REPOSITORY="git://repo.or.cz/${PN}.git"
+require polysh scm-git
+
+PLATFORMS="~amd64"
+

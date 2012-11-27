@@ -1,0 +1,8 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require polysh
+
+PLATFORMS="~amd64"
+DOWNLOADS="http://guichaz.free.fr/${PN}/files/${PNV}.tar.bz2"
+
