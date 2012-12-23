@@ -13,7 +13,6 @@ development of machine-checked proofs.
 LICENCES="LGPL-2.1"
 SLOT="0"
 MYOPTIONS="
-    camlp5 [[ description = [ Compile Coq with camlp5 support ] ]]
     gtk
     ocamlopt
 "
@@ -22,7 +21,6 @@ DEPENDENCIES="
     build+run:
       dev-lang/ocaml[ocamlopt?]
       gtk? ( dev-ocaml/lablgtk )
-      camlp5? ( dev-ocaml/camlp5 )
 "
 
 coq_src_configure() {
@@ -30,8 +28,6 @@ coq_src_configure() {
     CONFIG="--prefix /usr --libdir /usr/${LIBDIR} "
 
     option gtk && CONFIG+="--lablgtkdir /usr/lib/ocaml/lablgtk2/ " || CONFIG+="--coqide no "
-
-#    option camlp5 &&
 
     option ocamlopt && CONFIG+="--opt "
 
