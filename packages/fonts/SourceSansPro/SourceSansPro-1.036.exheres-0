@@ -19,7 +19,7 @@ MYOPTIONS=""
 
 DOWNLOADS="mirror://sourceforge/${SFPROJECT}/${DIRNAME}.zip"
 
-WORK=${WORKBASE}/${DIRNAME}
+WORK="${WORKBASE}/${DIRNAME}"
 
 src_install() {
     insinto /usr/share/fonts/X11/${FONT}/

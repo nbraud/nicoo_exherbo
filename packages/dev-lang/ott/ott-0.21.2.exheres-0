@@ -34,5 +34,5 @@ src_install() {
     edo install bin/* ${IMAGE}/usr/bin/
 }
 
-WORK=${WORKBASE}/ott_distro_${PV}
+WORK="${WORKBASE}/ott_distro_${PV}"
 
