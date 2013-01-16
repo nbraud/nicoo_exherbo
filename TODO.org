@@ -3,7 +3,7 @@
 ** DONE SardemFF7  coq: "--lablgtkdir /usr/lib/ocaml/lablgtk2/" → use ${LIBDIR}
 
 * app-text/pdfpc
-** TODO SardemFF7  pdfpc: Use vala.exlib (using the right ordering, I should comment that in the exlib though…)
+** DONE SardemFF7  pdfpc: Use vala.exlib (using the right ordering, I should comment that in the exlib though…)
 
 * fonts/*
 ** DONE SardemFF7  fonts: Use emagicdocs
