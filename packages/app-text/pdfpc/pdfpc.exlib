@@ -1,7 +1,9 @@
 # Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=davvil suffix=tgz ] cmake
+myexparam vala_slot
+
+require github [ user=davvil suffix=tgz ] vala [ vala_slots=[ $(exparam vala_slot) ] ] cmake
 
 HOMEPAGE="http://davvil.github.com/pdfpc/"
 SUMMARY="GTK-based presentation viewer, with multi-screen support."
@@ -17,7 +19,6 @@ MYOPTIONS=""
 DEPENDENCIES="
     build:
       dev-util/pkg-config
-      dev-lang/vala:*[>=0.11]
 
     build+run:
       app-text/poppler[glib]

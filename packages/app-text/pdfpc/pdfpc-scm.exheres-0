@@ -5,14 +5,11 @@ SCM_Vala_CMake_REPOSITORY="git://github.com/jakobwesthoff/Vala_CMake.git"
 SCM_EXTERNAL_REFS="cmake/Vala_CMake:Vala_CMake"
 SCM_SECONDARY_REPOSITORIES="Vala_CMake"
 
-require pdfpc
+require pdfpc [ vala_slot='0.16' ]
 
 PLATFORMS="~amd64"
 
 DEPENDENCIES="
-    build:
-      dev-lang/vala:*[>=0.16]
-
     build+run:
         media-libs/gstreamer:0.10
         media-plugins/gst-plugins-base:0.10
