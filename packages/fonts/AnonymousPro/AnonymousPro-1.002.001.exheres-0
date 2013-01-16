@@ -27,6 +27,6 @@ src_install() {
     insinto /usr/share/fonts/X11/${FONT}/
     doins "${WORK}"/*.ttf
 
-    dodoc README.txt
+    emagicdocs
 }
 
