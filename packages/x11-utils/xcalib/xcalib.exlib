@@ -15,7 +15,10 @@ LICENCES="GPL-1"
 SLOT="0"
 MYOPTIONS=""
 
-#TODO: Fix dependencies
+DEPENDENCIES="
+    build+run:
+      x11-server/xorg-server
+"
 
 DEFAULT_SRC_INSTALL_PARAMS=( PREFIX="/usr" )
 
