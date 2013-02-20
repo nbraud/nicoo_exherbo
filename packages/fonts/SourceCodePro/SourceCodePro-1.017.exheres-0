@@ -24,8 +24,8 @@ WORK="${WORKBASE}/${DIRNAME}"
 
 src_install() {
     insinto "/usr/share/fonts/X11/${FONT}/"
-    doins "${WORK}"/*.ttf
-    doins "${WORK}"/*.otf
+    doins "${WORK}"/TTF/*.ttf
+    doins "${WORK}"/OTF/*.otf
 
     dodoc *.html
 }
