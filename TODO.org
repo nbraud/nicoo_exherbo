@@ -1,18 +1,3 @@
-* dev-lang/coq
-** DONE SardemFF7  coq "#    option camlp5 &&" ← does that mean camlp5 support is automagic?
-** DONE SardemFF7  coq: "--lablgtkdir /usr/lib/ocaml/lablgtk2/" → use ${LIBDIR}
-
-* app-text/pdfpc
-** DONE SardemFF7  pdfpc: Use vala.exlib (using the right ordering, I should comment that in the exlib though…)
 
 * fonts/*
-** DONE SardemFF7  fonts: Use emagicdocs
-** DONE heirecka   Source{Code,Sans}Pro: ${WORK} needs quoting
-
-* Misc.
-** DONE heirecka   sloccount: ${IMAGE} needs quoting
-** DONE heirecka   ott: ${IMAGE} needs quoting
-** DONE SardemFF7  polysh: Isn’t the python dep handled by distutils.exlib?
-** DONE SardemFF7  xcalib: #TODO :-)
-
-* TODO Philantrop Fix and requeue your repo.
+** TODO DEac-      Update
