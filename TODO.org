@@ -1,30 +1,18 @@
 * dev-lang/coq
 coq.exlib: move export_exlib_phases to top, call emagicdocs
-           style: I'd write src_configure like this https://raw.github.com/gist/5076054/  then it is clearer what is going on
 
 * dev-lang/ott
-wrong indentation in DEPENDENCIES
 src_compile can use DEFAULT_SRC_COMPILE_PARAMS
 src_install should use dobin
 move WORK to the other variables
 
 * dev-lang/ocaml
-ocaml-4.00.1-r1: FILES needs to be quoted, still has the ISC License header
 ocaml.exlib: call emagicdocs, move export_exlib_phases to top
 
 14:31 < ~sepek_> nicoo: wnere is the difference to ocaml in ::compnerd
 
-* Misc
-sloccount: perl is slotted and needs :* (most likely)
-polysh.exlib: wrong indentation in DEPENDENCIES
-xcalib: wrong indentation in DEPENDENCIES
-
 * Fonts
-SourceCodePro: drop the description from HOMEPAGE
 SourceCodePro: if you set HOMEPAGE and DOWNLOADS manually, simply also set REMOTE_IDS and drop sourceforge.exlib
                or pass DIRNAME to sourceforge.exlib as exparam pnv
 SourceCodePro: emagicdocs
 SourceSansPro: Same as SourceCodePro
-AnonymousPro: drop description from homepage
-AnonymousPro: Why set FILE if you only use it once? put that in DOWNLOADS, that way it is clearer
-mostly cosmetic, as you can see
