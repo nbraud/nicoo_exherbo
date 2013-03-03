@@ -6,11 +6,7 @@ DIRNAME="${PN}_FontsOnly-${PV}"
 
 require xfont sourceforge [ suffix=zip project=${SFPROJECT} ]
 
-SUMMARY="Free, monospaced OpenType fonts by Adobe"
-DESCRIPTION="
-Source Code is the monospaced version of Source Sans, a familly of OpenType fonts designed to work well in user interfaces.
-This isn't a bitmap font.
-"
+SUMMARY="Monospaced version of Adobe's Source Sans"
 HOMEPAGE="http://sourceforge.net/projects/${SFPROJECT}/ [[ description = [ Sourceforge project ] ]]"
 
 LICENCES="OFL-1.1"
