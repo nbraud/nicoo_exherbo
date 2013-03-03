@@ -15,6 +15,6 @@ SLOT="0"
 
 DEPENDENCIES="
     run:
-      net-misc/openssh
+        net-misc/openssh
 "
 

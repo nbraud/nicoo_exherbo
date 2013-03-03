@@ -19,10 +19,10 @@ SLOT="0"
 
 DEPENDENCIES="
     build+run:
-      dev-lang/ocaml[>=3.10]
+        dev-lang/ocaml[>=3.10]
 
     suggestion:
-      dev-lang/coq
+        dev-lang/coq
 "
 
 src_compile() {
