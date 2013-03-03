@@ -1,4 +1,4 @@
-# Distributed under the terms of the ISC License
+# Distributed under the terms of the GNU General Public License v2
 # Copyright 2012 Nicolas Braud-Santoni   <nicolas@braud-santoni.eu>
 
 require ocaml
@@ -11,6 +11,6 @@ MYOPTIONS="
 "
 
 src_prepare() {
-    option short-types && expatch -p1 ${FILES}/${PNV}-short-types.patch
+    option short-types && expatch -p1 "${FILES}"/${PNV}-short-types.patch
 }
 
