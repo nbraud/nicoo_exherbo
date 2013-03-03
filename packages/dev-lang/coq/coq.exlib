@@ -24,14 +24,14 @@ DEPENDENCIES="
 "
 
 coq_src_configure() {
-    local CONFIG
-    CONFIG="--prefix /usr --libdir /usr/${LIBDIR} "
+    local CONFIG=(
+        "--prefix /usr"
+        "--libdir /usr/${LIBDIR}"
+        $(option gtk "--lablgtkdir /usr/${LIBDIR}/ocaml/lablgtk2/" "--coqide no")
+        $(option ocamlopt "--opt" "")
+    )
 
-    option gtk && CONFIG+="--lablgtkdir /usr/${LIBDIR}/ocaml/lablgtk2/ " || CONFIG+="--coqide no "
-
-    option ocamlopt && CONFIG+="--opt "
-
-    edo ./configure ${CONFIG}
+    edo ./configure "${CONFIG[@]}"
 }
 
 coq_src_install() {
