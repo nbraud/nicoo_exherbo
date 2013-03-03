@@ -16,7 +16,7 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     build+run:
-        dev-lang/perl
+        dev-lang/perl:*
 "
 
 DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PNV}-makefile-fix.patch" )
