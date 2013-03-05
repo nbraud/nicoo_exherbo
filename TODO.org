@@ -1,6 +1,3 @@
-* dev-lang/coq
-coq.exlib: move export_exlib_phases to top, call emagicdocs
-
 * dev-lang/ott
 src_compile can use DEFAULT_SRC_COMPILE_PARAMS
 src_install should use dobin

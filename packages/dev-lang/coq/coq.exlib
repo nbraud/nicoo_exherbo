@@ -1,6 +1,8 @@
 # Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
 # Distributed under the terms of the GNU General Public License v2
 
+export_exlib_phases src_configure src_install
+
 HOMEPAGE="http://coq.inria.fr/"
 SUMMARY="A proof assistant"
 DESCRIPTION="
@@ -37,8 +39,6 @@ coq_src_configure() {
 coq_src_install() {
     emake COQINSTALLPREFIX="${IMAGE}" install
     edo rmdir "${IMAGE}/usr/${LIBDIR}/user-contrib"
+    emagicdocs
 }
-
-
-export_exlib_phases src_configure src_install
 
