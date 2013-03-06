@@ -1,6 +1,4 @@
 * dev-lang/ott
-src_compile can use DEFAULT_SRC_COMPILE_PARAMS
-src_install should use dobin
 move WORK to the other variables
 
 * dev-lang/ocaml

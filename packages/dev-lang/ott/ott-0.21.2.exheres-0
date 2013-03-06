@@ -25,13 +25,11 @@ DEPENDENCIES="
         dev-lang/coq
 "
 
-src_compile() {
-    emake world
-}
+DEFAULT_SRC_COMPILE_PARAMS=( "world" )
 
 src_install() {
     edo mkdir -p ${IMAGE}/usr/bin/
-    edo install bin/* ${IMAGE}/usr/bin/
+    dobin bin/*
 }
 
 WORK="${WORKBASE}/ott_distro_${PV}"
