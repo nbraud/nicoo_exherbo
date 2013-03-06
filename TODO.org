@@ -4,8 +4,6 @@ src_install should use dobin
 move WORK to the other variables
 
 * dev-lang/ocaml
-ocaml.exlib: call emagicdocs, move export_exlib_phases to top
-
 14:31 < ~sepek_> nicoo: wnere is the difference to ocaml in ::compnerd
 
 * Fonts

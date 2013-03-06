@@ -43,6 +43,8 @@ DEPENDENCIES="
 "
 
 
+export_exlib_phases src_configure src_compile src_install
+
 ocaml_src_configure() {
     # ocamlopt uses -pg. -pg and -fomit-frame-pointer conflict
     option ocamlopt && filter-flags -fomit-frame-pointer
@@ -96,7 +98,7 @@ ocaml_src_install() {
 
     # remove references to ${IMAGE} from ld.conf, the build doesn't deal with $(DESTDIR)
     edo sed -i -e "s:${IMAGE}::g" "${IMAGE}/usr/${LIBDIR}/ocaml/ld.conf"
-}
 
-export_exlib_phases src_configure src_compile src_install
+    emagicdocs
+}
 
