@@ -1,9 +1,6 @@
 * dev-lang/ott
 move WORK to the other variables
 
-* dev-lang/ocaml
-14:31 < ~sepek_> nicoo: wnere is the difference to ocaml in ::compnerd
-
 * Fonts
 SourceCodePro: if you set HOMEPAGE and DOWNLOADS manually, simply also set REMOTE_IDS and drop sourceforge.exlib
                or pass DIRNAME to sourceforge.exlib as exparam pnv
