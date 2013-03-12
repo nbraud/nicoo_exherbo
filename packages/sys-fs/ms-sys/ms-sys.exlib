@@ -11,7 +11,7 @@ to a floppy or FAT partition, except that it does not copy any system files,
 only the boot record is written.
 "
 
-LICENCES="GPL-1"
+LICENCES="GPL-2"
 SLOT="0"
 MYOPTIONS=""
 
