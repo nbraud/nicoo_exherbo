@@ -8,9 +8,9 @@ DESCRIPTION="
 A family of four monospaced fonts for coding.
 Takes care to have distinguishable shapes for usually-ambiguous characters.
 "
-HOMEPAGE="http://www.ms-studio.com/FontSales/anonymouspro.html [[ description = [ Upstream homepage ] ]]"
+HOMEPAGE="http://www.marksimonson.com/fonts/view/anonymous-pro"
 
-DOWNLOADS="http://www.ms-studio.com/FontSales/${PN}-$(ever range -2).zip"
+DOWNLOADS="http://www.marksimonson.com/assets/content/fonts/${PN}-$(ever range -2).zip"
 
 LICENCES="OFL-1.0"
 SLOT="0"
