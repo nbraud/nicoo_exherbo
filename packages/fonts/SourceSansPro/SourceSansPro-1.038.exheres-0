@@ -7,7 +7,10 @@ DIRNAME="${PN}_FontsOnly-${PV}"
 require xfont sourceforge [ suffix=zip project=${SFPROJECT} ]
 
 SUMMARY="Free, versatile OpenType fonts by Adobe"
-HOMEPAGE="http://sourceforge.net/projects/${SFPROJECT}/ [[ description = [ Sourceforge project ] ]]"
+HOMEPAGE="
+http://sourceforge.net/projects/${SFPROJECT}/ [[ description = [ Sourceforge project ] ]]
+https://github.com/adobe/Source-Sans-Pro      [[ description = [ GitHub repository   ] ]]
+"
 
 LICENCES="OFL-1.1"
 SLOT="0"
