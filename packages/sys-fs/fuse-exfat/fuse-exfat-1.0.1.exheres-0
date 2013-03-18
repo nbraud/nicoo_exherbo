@@ -1,0 +1,22 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require scons googlecode [ suffix=tar.gz project=exfat ]
+
+PLATFORMS="~amd64"
+LICENCES="GPL-3"
+SLOT="0"
+
+DEPENDENCIES="
+    suggestion:
+        sys-fs/exfat-utils
+"
+
+src_install() {
+    doman */*.8
+    dodoc ChangeLog
+
+    dosbin fuse/mount.exfat-fuse
+    dosym mount.exfat-fuse /usr/sbin/mount.exfat
+}
+
