@@ -30,7 +30,7 @@ coq_src_configure() {
         "--prefix /usr"
         "--libdir /usr/${LIBDIR}"
         $(option gtk "--lablgtkdir /usr/${LIBDIR}/ocaml/lablgtk2/" "--coqide no")
-        $(option ocamlopt "--opt" "")
+        $(option ocamlopt "--opt")
     )
 
     edo ./configure "${CONFIG[@]}"
