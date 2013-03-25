@@ -9,7 +9,7 @@ SLOT="0"
 
 DEPENDENCIES="
     suggestion:
-        sys-fs/exfat-utils
+        sys-fs/exfat-utils [ description = [ exfat-utils contains exFAT-related utils, like mkfs.exfat ] ]
 "
 
 src_install() {
