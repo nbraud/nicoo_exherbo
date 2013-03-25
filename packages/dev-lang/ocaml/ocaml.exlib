@@ -28,12 +28,12 @@ BUGS_TO="fauxmight@nosocomia.com nicolas@braud-santoni.eu"
 UPSTREAM_DOCUMENTATION="http://caml.inria.fr/resources/doc/index.en.html"
 
 MYOPTIONS="
-    X
     ocamlopt [[ description = [ Adds support for OCaml native code compiler ] ]]
     doc      [[ description = [ Install OCaml's manpages ] ]]
     threads
     ncurses
     tk
+    X
 "
 
 DEPENDENCIES="
