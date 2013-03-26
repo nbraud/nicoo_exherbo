@@ -22,7 +22,7 @@ DEPENDENCIES="
         dev-lang/ocaml[>=3.10]
 
     suggestion:
-        dev-lang/coq [ description = [ Ott produces code for the Coq proof assistant ] ]
+        dev-lang/coq [[ description = [ Ott produces code for the Coq proof assistant ] ]]
 "
 
 DEFAULT_SRC_COMPILE_PARAMS=( "world" )
