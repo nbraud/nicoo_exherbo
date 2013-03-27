@@ -22,7 +22,7 @@ DEPENDENCIES="
 DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PNV}-makefile-fix.patch" )
 
 src_install() {
-    edo mkdir -p "${IMAGE}/usr/{bin,share/{man,doc}}"
+    edo mkdir -p "${IMAGE}/usr/bin" "${IMAGE}/usr/share/man" "${IMAGE}/usr/share/doc"
     emake -j1 "PREFIX=${IMAGE}/usr" install
 }
 
