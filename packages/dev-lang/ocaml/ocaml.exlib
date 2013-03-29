@@ -14,8 +14,8 @@ high performance; a bytecode compiler, for increased portability;
 and an interactive loop, for experimentation and rapid development.
 "
 HOMEPAGE="
-http://caml.inria.fr/ocaml/index.en.html [ description = [ Official homepage at Inria ]]
-http://ocaml.org/                        [ description = [ Community-driven website   ]]
+http://caml.inria.fr/ocaml/index.en.html [[ description = [ Official homepage at Inria ] ]]
+http://ocaml.org/                        [[ description = [ Community-driven website   ] ]]
 "
 LICENCES="|| ( LGPL-2 QPL-1.0 )"
 
