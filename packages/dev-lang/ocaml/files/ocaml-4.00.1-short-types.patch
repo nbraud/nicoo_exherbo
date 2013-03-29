@@ -1,5 +1,5 @@
 Source: https://yquem.inria.fr/caml/svn/ocaml/branches/short-paths
-Upstream: yes, obviously
+Upstream: Yes (in an experimental branch)
 Reason: Use J. Garrigue's patch to the type pretty-printer
 
 ---
