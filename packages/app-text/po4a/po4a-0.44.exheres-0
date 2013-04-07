@@ -1,0 +1,18 @@
+# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module
+
+PLATFORMS="~amd64 ~x86"
+SLOT="0"
+
+SUMMARY="PO 4 Anything"
+HOMEPAGE="http://${PN}.alioth.debian.org"
+DOWNLOADS="http://alioth.debian.org/frs/download.php/3786/${PNV}.tar.gz"
+
+DEPENDENCIES="
+  run:
+    dev-lang/perl
+    dev-perl/Locale-gettext
+"
+
