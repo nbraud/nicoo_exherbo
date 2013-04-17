@@ -1,0 +1,36 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+SCM_REPOSITORY="git://git.sarava.org/keyringer.git"
+require scm-git
+#Note: Using directly the Git repository is /the/ method supported by upstream.
+#      Thus this -scm package won't be masked.
+
+PLATFORMS="~amd64 ~x86"
+SLOT="0"
+
+DEPENDENCIES="
+  run:
+    app-crypt/gnupg
+    app-shells/bash
+    dev-scm/git
+    sys-apps/coreutils
+    sys-apps/gawk
+    sys-apps/grep
+    sys-apps/sed
+"
+
+SUMMARY="Distributed secret-sharing using Git and GPG"
+DESCRIPTION="
+Keyringer lets you manage and share secrets using GPG and git in a distributed fashion.
+It has custom commands to encrypt, decrypt, recrypt, create key pairs, etc.
+"
+
+
+src_prepare() {
+    edo touch ${WORK}/README
+    edo sed -i "s./lib/./${LIBDIR}/.g" ${WORK}/Makefile
+
+    default
+}
+
