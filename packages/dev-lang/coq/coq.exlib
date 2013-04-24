@@ -27,8 +27,8 @@ DEPENDENCIES="
 
 coq_src_configure() {
     local CONFIG=(
-        "--prefix /usr"
-        "--libdir /usr/${LIBDIR}"
+        --prefix /usr
+        --libdir /usr/"${LIBDIR}"
         $(option gtk "--lablgtkdir /usr/${LIBDIR}/ocaml/lablgtk2/" "--coqide no")
         $(option ocamlopt "--opt")
     )
