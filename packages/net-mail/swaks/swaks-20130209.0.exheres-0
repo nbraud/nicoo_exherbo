@@ -15,7 +15,7 @@ HOMEPAGE="http://www.jetmore.org/john/code/swaks"
 DOWNLOADS="${HOMEPAGE}/files/${PNV}.tar.gz"
 
 MYOPTIONS="
-    md5  [[ description = [ Support for MD5 hash function ] ]]
+    md5  [[ description = [ Support for AUTH DIGEST-MD5 ] ]]
     ssl
 "
 
