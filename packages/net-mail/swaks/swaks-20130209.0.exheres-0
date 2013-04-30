@@ -1,0 +1,37 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+PLATFORMS="~amd64 ~x86"
+SLOT="0"
+LICENCES="GPL-2"
+
+SUMMARY="The Swiss Army Knife for SMTP"
+DESCRIPTION="
+Swaks is a featureful and scriptable, transaction-oriented SMTP test tool.
+It supports SMTP extensions including TLS, authentication, pipelining, and XCLIENT.
+"
+
+HOMEPAGE="http://www.jetmore.org/john/code/swaks"
+DOWNLOADS="${HOMEPAGE}/files/${PNV}.tar.gz"
+
+MYOPTIONS="
+    md5  [[ description = [ Support for MD5 hash function ] ]]
+    ssl
+"
+
+DEPENDENCIES="
+    run:
+      dev-lang/perl:*
+      md5? ( dev-perl/Authen-SASL )
+      ssl? ( dev-perl/Net-SSLeay  )
+"
+
+
+src_install() {
+    emagicdocs
+    dodoc doc/*
+
+    insinto /usr/bin
+    doins swaks
+}
+
