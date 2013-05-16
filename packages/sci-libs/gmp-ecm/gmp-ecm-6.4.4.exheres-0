@@ -1,0 +1,15 @@
+# Distributed under the terms of the GNU General Public License v2
+# Copyright 2013 Nicolas Braud-Santoni   <nicolas@braud-santoni.eu>
+
+PLATFORMS="~amd64 ~x86"
+SLOT="0"
+
+DOWNLOADS="https://gforge.inria.fr/frs/download.php/32159/ecm-6.4.4.tar.gz"
+WORK="${WORKBASE}/ecm-${PV}"
+
+DEPENDENCIES="
+   build+run:
+     dev-libs/gmp
+     sci-libs/gsl
+"
+
