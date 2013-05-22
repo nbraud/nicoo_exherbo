@@ -5,3 +5,6 @@ SourceCodePro: if you set HOMEPAGE and DOWNLOADS manually, simply also set REMOT
 * Misc
 zlin> nicoo: I should probably also mention that the quoting of "--prefix /usr" in coq looks pretty dodgy.
       but I assume that configure script is shitty enough for that to work anyway.
+* TODO Julia
+** TODO SparseSuite
+
