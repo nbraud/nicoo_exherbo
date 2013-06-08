@@ -1,0 +1,9 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module [ module_author=MJD ]
+
+SUMMARY="Library for generating form letters, building HTML pages, or filling in templates generally."
+SLOT="0"
+PLATFORMS="~amd64 ~ppc64 ~x86"
+
