@@ -1,0 +1,20 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=mtoyoda ]
+
+PLATFORMS="~amd64 ~x86"
+SLOT="0"
+
+SUMMARY="SL (Steam Locomotive) runs across your terminal when you type 'sl' as you meant to type 'ls'."
+
+src_compile() {
+    emake sl
+    edo chmod +x sl
+}
+
+src_install() {
+    insinto /usr/bin
+    doins sl
+}
+
