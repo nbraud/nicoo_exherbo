@@ -1,0 +1,10 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=rwos ]
+
+PLATFORMS="~amd64 ~x86"
+SLOT="0"
+
+SUMMARY="Gti displays a GTI car when you meant to type 'git'."
+
