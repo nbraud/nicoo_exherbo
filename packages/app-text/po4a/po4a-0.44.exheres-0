@@ -8,7 +8,7 @@ SLOT="0"
 
 SUMMARY="PO 4 Anything"
 HOMEPAGE="http://${PN}.alioth.debian.org"
-DOWNLOADS="http://alioth.debian.org/frs/download.php/3786/${PNV}.tar.gz"
+DOWNLOADS="http://alioth.debian.org/frs/download.php/file/3786/${PNV}.tar.gz"
 
 DEPENDENCIES="
   run:
