@@ -1,7 +1,7 @@
 # Copyright 2012 Nicolas Braud-Santoni
 # Distributed under the terms of the GNU General Public License v2
 
-require sourceforge [ project=${PN} pn=${PN}-sources suffix=tar.gz ]
+require sourceforge [ project="${PN}" pn="${PN}-source" suffix=tar.gz ]
 
 SUMMARY="Monitor calibration loader for X.org"
 DESCRIPTION="
@@ -11,7 +11,7 @@ often use standard monitor profiles or custom profiles created for
 a calibrated monitor.
 "
 
-LICENCES="GPL-1"
+LICENCES="GPL-2"
 SLOT="0"
 MYOPTIONS=""
 
@@ -20,5 +20,10 @@ DEPENDENCIES="
         x11-server/xorg-server
 "
 
-DEFAULT_SRC_INSTALL_PARAMS=( PREFIX="/usr" )
+src_install() {
+    dobin "${PN}"
+    emagicdocs
+    insinto /usr/share/pixmaps
+    newins icon.ico "${PN}.ico"
+}
 
