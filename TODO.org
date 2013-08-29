@@ -1,7 +1,3 @@
-* Fonts
-SourceCodePro: if you set HOMEPAGE and DOWNLOADS manually, simply also set REMOTE_IDS and drop sourceforge.exlib
-               or pass DIRNAME to sourceforge.exlib as exparam pnv
-
 * Misc
 zlin> nicoo: I should probably also mention that the quoting of "--prefix /usr" in coq looks pretty dodgy.
       but I assume that configure script is shitty enough for that to work anyway.

@@ -4,9 +4,9 @@
 SFPROJECT="sourcesans.adobe"
 DIRNAME="${PN}_FontsOnly-${PV}"
 
-require xfont sourceforge [ suffix=zip project=${SFPROJECT} ]
+require xfont sourceforge [ suffix=zip project=${SFPROJECT} pnv=${DIRNAME} ]
 
-SUMMARY="Free, versatile OpenType fonts by Adobe"
+SUMMARY="Free, versatile OpenType font by Adobe"
 HOMEPAGE="
 http://sourceforge.net/projects/${SFPROJECT}/ [[ description = [ Sourceforge project ] ]]
 https://github.com/adobe/Source-Sans-Pro      [[ description = [ GitHub repository   ] ]]
@@ -16,8 +16,6 @@ LICENCES="OFL-1.1"
 SLOT="0"
 PLATFORMS="~amd64 ~ppc64 ~x86"
 MYOPTIONS=""
-
-DOWNLOADS="mirror://sourceforge/${SFPROJECT}/${DIRNAME}.zip"
 
 WORK="${WORKBASE}/${DIRNAME}"
 
