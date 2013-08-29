@@ -10,6 +10,8 @@ SUMMARY="PO 4 Anything"
 HOMEPAGE="http://${PN}.alioth.debian.org"
 DOWNLOADS="http://alioth.debian.org/frs/download.php/file/3786/${PNV}.tar.gz"
 
+WORK="${WORKBASE}/${PN}-0.44"
+
 DEPENDENCIES="
   run:
     dev-lang/perl
