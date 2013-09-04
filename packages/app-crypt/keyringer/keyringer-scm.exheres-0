@@ -34,3 +34,5 @@ src_prepare() {
     default
 }
 
+DEFAULT_SRC_INSTALL_PARAMS=( PREFIX='/usr' )
+
