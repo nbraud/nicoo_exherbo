@@ -11,9 +11,3 @@ DEPENDENCIES="
       sys-libs/ncurses
 "
 
-src_install() {
-    default
-
-    edo rmdir "${IMAGE}"/usr/share/{fish/,}man/{man1/,}
-}
-
