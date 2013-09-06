@@ -1,0 +1,22 @@
+# Copyright 2013 Heather <heather@cynede.net>
+# Distributed under the terms of the GNU General Public License v2
+
+require autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+
+DOWNLOADS="http://fishshell.com/files/${PV}/fish-${PV}.tar.gz"
+SUMMARY="Smart and user-friendly command line shell"
+HOMEPAGE="http://fishshell.com/"
+PLATFORMS="~amd64 ~x86"
+SLOT="0"
+DEPENDENCIES="
+    build+run:
+        sys-libs/ncurses
+"
+WORK="${WORKBASE}/fish"
+
+pkg_postinst() {
+    elog
+    elog "To use ${PN} as default shell add ${EPREFIX}/usr/bin/${PN}"
+    elog "to ${EPREFIX}/etc/shells."
+    elog
+}
