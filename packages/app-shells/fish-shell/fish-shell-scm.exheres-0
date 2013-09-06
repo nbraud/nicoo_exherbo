@@ -1,15 +1,11 @@
 # Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
 # Distributed under the terms of the GNU General Public License v2
 
-require github autotools [ supported_autoconf=[ 2.5 ] supported_automake=[ 1.13 ] ]
+require fish-shell
 
 PLATFORMS="~amd64 ~x86"
 SLOT="0"
 
-DEPENDENCIES="
-    build+run:
-      sys-libs/ncurses
-"
 
 src_install() {
     default
