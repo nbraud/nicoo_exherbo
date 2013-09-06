@@ -1,0 +1,11 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require fish-shell
+
+PLATFORMS="~amd64 ~x86"
+SLOT="0"
+DOWNLOADS="http://fishshell.com/files/${PV}/fish-${PV}.tar.gz"
+
+WORK="${WORKBASE}/fish"
+
