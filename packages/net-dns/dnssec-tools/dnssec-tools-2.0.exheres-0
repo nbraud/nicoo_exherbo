@@ -1,0 +1,24 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+PLATFORMS="~amd64 ~x86"
+SLOT="0"
+LICENCES="BSD"
+
+SUMMARY="DNSSEC-related tools"
+
+HOMEPAGE="http://www.dnssec-tools.org"
+DOWNLOADS="${HOMEPAGE}/download/${PNV}.tar.gz"
+
+DEPENDENCIES="
+    build+run:
+      net-dns/bind-tools[>=9.9.3_p2-r1]
+"
+
+
+src_install() {
+    default
+
+    edo rm -rf ${IMAGE}/usr/{sbin,share/man}
+}
+
