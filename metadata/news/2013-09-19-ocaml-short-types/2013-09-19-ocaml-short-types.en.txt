@@ -1,0 +1,14 @@
+Title: OCaml : removing short-types option
+Author: Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+Content-Type: text/plain
+Posted: 2013-09-19
+Revision: 1
+News-Item-Format: 1.0
+Display-If-Installed: dev-lang/ocaml
+
+Jacques Garrigues introduced a new branch of the OCaml compiler and runtime,
+named short-paths, which uses an heuristic to display shorter type paths in
+presence of type synonyms.
+
+Since release 4.01.0, this branch has been merged in the official one.
+The corresponding option has been removed.
