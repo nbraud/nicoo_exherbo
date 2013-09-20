@@ -10,11 +10,10 @@ SUMMARY="SL (Steam Locomotive) runs across your terminal when you type 'sl' as y
 
 src_compile() {
     emake sl
-    edo chmod +x sl
 }
 
 src_install() {
     insinto /usr/bin
-    doins sl
+    dobin sl
 }
 
