@@ -15,7 +15,7 @@ DESCRIPTION="
 "
 HOMEPAGE="http://www.seas.upenn.edu/~bcpierce/unison/"
 LICENCES="GPL-3"
-PLATFORMS="~amd64 ~ppc ~x86"
+PLATFORMS="~amd64 ~x86"
 
 DEPENDENCIES="
     build:
