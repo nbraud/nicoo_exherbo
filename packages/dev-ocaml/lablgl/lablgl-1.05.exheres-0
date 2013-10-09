@@ -1,0 +1,41 @@
+# Distributed under the terms of the GNU General Public License v2
+# Copyright 2013 Nicolas Braud-Santoni   <nicolas@braud-santoni.eu>
+
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
+SUMMARY="TODO"
+DESCRIPTION="
+TODO
+"
+HOMEPAGE="
+http://wwwfun.kurims.kyoto-u.ac.jp/soft/lsl/${PN}.html [[ description = [ Official homepage at Kyoto University ] ]]
+https://forge.ocamlcore.org/projects/${PN}/ [[ description = [ Project page on the OCaml Forge ] ]]
+"
+LICENCES="BSD-3"
+
+DOWNLOADS="http://wwwfun.kurims.kyoto-u.ac.jp/soft/lsl/dist/${PNV}.tar.gz"
+BUGS_TO="nicolas+exherbo@braud-santoni.eu"
+
+MYOPTIONS="ocamlopt"
+
+DEPENDENCIES="
+    build+run:
+      dev-lang/ocaml[tk]
+"
+
+src_prepare() {
+    edo cp ${FILES}/Makefile.config .
+}
+
+src_compile() {
+    emake
+    option ocamlopt && emake opt
+}
+
+src_install() {
+    edo mkdir -p ${IMAGE}{usr/bin,$(ocamlc -where)/stublibs}
+    emake install
+    emagicdocs
+}
+
