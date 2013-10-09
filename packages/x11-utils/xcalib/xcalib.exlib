@@ -1,4 +1,4 @@
-# Copyright 2012 Nicolas Braud-Santoni
+# Copyright 2012-2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 # Distributed under the terms of the GNU General Public License v2
 
 require sourceforge [ project="${PN}" pn="${PN}-source" suffix=tar.gz ]

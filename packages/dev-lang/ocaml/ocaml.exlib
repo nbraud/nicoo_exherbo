@@ -1,7 +1,7 @@
 # Distributed under the terms of the GNU General Public License v2
-# Copyright 2012 Nicolas Braud-Santoni   <nicolas+exherbo@braud-santoni.eu>
-# Copyright 2009 A Frederick Christensen <fauxmight@nosocomia.com>
-# Copyright 2008 Saleem Abdulrasool      <compnerd@compnerd.org>
+# Copyright 2012-2013 Nicolas Braud-Santoni   <nicolas+exherbo@braud-santoni.eu>
+# Copyright 2009      A Frederick Christensen <fauxmight@nosocomia.com>
+# Copyright 2008      Saleem Abdulrasool      <compnerd@compnerd.org>
 require flag-o-matic
 
 SUMMARY="A general-purpose programming language, designed for safety and reliability."
