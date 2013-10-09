@@ -21,7 +21,7 @@ MYOPTIONS="ocamlopt"
 
 DEPENDENCIES="
     build+run:
-      dev-lang/ocaml[tk]
+      dev-lang/ocaml[tk][ocamlopt?]
 "
 
 src_prepare() {
