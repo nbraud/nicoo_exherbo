@@ -1,4 +1,4 @@
-# Copyright 2013 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Copyright 2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 # Distributed under the terms of the GNU General Public License v2
 
 require github [ user=mtoyoda ]

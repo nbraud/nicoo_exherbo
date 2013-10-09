@@ -1,5 +1,5 @@
 # Distributed under the terms of the GNU General Public License v2
-# Copyright 2012 Nicolas Braud-Santoni   <nicolas@braud-santoni.eu>
+# Copyright 2012 Nicolas Braud-Santoni   <nicolas+exherbo@braud-santoni.eu>
 # Copyright 2009 A Frederick Christensen <fauxmight@nosocomia.com>
 # Copyright 2008 Saleem Abdulrasool      <compnerd@compnerd.org>
 require flag-o-matic
@@ -25,7 +25,7 @@ MY_PNV=${PN}-$(ever replace 3 +)
 DOWNLOADS="http://caml.inria.fr/pub/distrib/${PN}-$(ever range 1-2)/${MY_PNV}.tar.bz2"
 WORK=${WORKBASE}/${MY_PNV}
 
-BUGS_TO="fauxmight@nosocomia.com nicolas@braud-santoni.eu"
+BUGS_TO="fauxmight@nosocomia.com nicolas+exherbo@braud-santoni.eu"
 
 UPSTREAM_DOCUMENTATION="http://caml.inria.fr/resources/doc/index.en.html"
 

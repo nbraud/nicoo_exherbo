@@ -1,4 +1,4 @@
-# Copyright 2012 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Copyright 2012 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 # Distributed under the terms of the GNU General Public License v2
 
 SCM_Vala_CMake_REPOSITORY="git://github.com/jakobwesthoff/Vala_CMake.git"

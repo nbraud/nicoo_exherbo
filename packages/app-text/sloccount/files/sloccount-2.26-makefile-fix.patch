@@ -1,4 +1,4 @@
-Source: Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+Source: Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 Upstream: no
 Reason: makefile used hard-coded values for PREFIX and CC
 
