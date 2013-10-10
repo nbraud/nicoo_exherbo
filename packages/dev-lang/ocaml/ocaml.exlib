@@ -12,8 +12,6 @@ It features a powerful module system and a full-fledged object-oriented layer.
 It comes with a native-code compiler that supports numerous architectures, for
 high performance; a bytecode compiler, for increased portability;
 and an interactive loop, for experimentation and rapid development.
-
-This exheres differs from the one in ::compnerd by the presence of the short-types option.
 "
 HOMEPAGE="
 http://caml.inria.fr/ocaml/index.en.html [[ description = [ Official homepage at Inria ] ]]
