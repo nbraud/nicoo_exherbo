@@ -4,5 +4,5 @@
 require ocaml
 
 SLOT="0"
-PLATFORMS="~amd64 ~ppc ~x86"
+PLATFORMS="~amd64 ~x86"
 
