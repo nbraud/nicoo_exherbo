@@ -14,7 +14,7 @@ DOWNLOADS="http://www.marksimonson.com/assets/content/fonts/${PN}-$(ever range -
 
 LICENCES="OFL-1.0"
 SLOT="0"
-PLATFORMS="~amd64 ~ppc64 ~x86"
+PLATFORMS="~amd64 ~x86"
 MYOPTIONS=""
 
 DEPENDENCIES="

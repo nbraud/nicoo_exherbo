@@ -14,7 +14,7 @@ https://github.com/adobe/Source-Code-Pro      [[ description = [ GitHub reposito
 
 LICENCES="OFL-1.1"
 SLOT="0"
-PLATFORMS="~amd64 ~ppc64 ~x86"
+PLATFORMS="~amd64 ~x86"
 MYOPTIONS=""
 
 DOWNLOADS="mirror://sourceforge/${SFPROJECT}/${DIRNAME}.zip"
