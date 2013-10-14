@@ -4,9 +4,14 @@
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
-SUMMARY="TODO"
+SUMMARY="OCaml interface to OpenGL"
 DESCRIPTION="
-TODO
+LablGL is is an OCaml interface to OpenGL.
+Support is included for use with both Glut (standalone) and LablTk.
+LablGTK also includes specific support for LablGL.
+
+It can be used either with proprietary OpenGL implementations,
+with XFree86 GLX extension, or with open-source Mesa.
 "
 HOMEPAGE="
 http://wwwfun.kurims.kyoto-u.ac.jp/soft/lsl/${PN}.html [[ description = [ Official homepage at Kyoto University ] ]]
