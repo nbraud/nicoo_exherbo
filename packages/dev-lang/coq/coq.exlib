@@ -16,12 +16,11 @@ LICENCES="LGPL-2.1"
 SLOT="0"
 MYOPTIONS="
     gtk
-    ocamlopt
 "
 
 DEPENDENCIES="
     build+run:
-      dev-lang/ocaml[ocamlopt?]
+      dev-lang/ocaml
       gtk? ( dev-ocaml/lablgtk )
 "
 
@@ -30,7 +29,7 @@ coq_src_configure() {
         --prefix /usr
         --libdir /usr/"${LIBDIR}"
         $(option gtk "--lablgtkdir /usr/${LIBDIR}/ocaml/lablgtk2/" "--coqide no")
-        $(option ocamlopt "--opt")
+        --opt
     )
 
     edo ./configure "${CONFIG[@]}"
