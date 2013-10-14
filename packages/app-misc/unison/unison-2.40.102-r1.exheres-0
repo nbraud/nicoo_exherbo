@@ -19,7 +19,7 @@ PLATFORMS="~amd64 ~x86"
 
 DEPENDENCIES="
     build:
-        dev-lang/ocaml[ocamlopt][threads?]
+        dev-lang/ocaml[threads?]
     build+run:
         gtk? (
             x11-libs/gtk+:2[>2.2]
