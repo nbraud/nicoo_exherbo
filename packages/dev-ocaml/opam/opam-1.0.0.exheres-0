@@ -1,0 +1,15 @@
+# Distributed under the terms of the GNU General Public License v2
+# Copyright 2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+
+CUDF=cudf-0.6.3
+EXTLIB=extlib-1.5.3
+DOSE=dose3-3.1.2
+CMDLINER=cmdliner-0.9.3
+GRAPH=ocamlgraph-1.8.1
+RE=ocaml-re-1.2.0
+
+require opam
+
+SLOT="0"
+PLATFORMS="~amd64"
+
