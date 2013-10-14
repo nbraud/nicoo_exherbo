@@ -30,7 +30,6 @@ UPSTREAM_DOCUMENTATION="http://caml.inria.fr/resources/doc/index.en.html"
 MYOPTIONS="
     doc      [[ description = [ Install OCaml's manpages ] ]]
     ncurses
-    ocamlopt [[ description = [ Adds support for OCaml native code compiler ] ]]
     threads
     tk
     X
@@ -50,7 +49,7 @@ export_exlib_phases src_configure src_compile src_install
 
 ocaml_src_configure() {
     # ocamlopt uses -pg. -pg and -fomit-frame-pointer conflict
-    option ocamlopt && filter-flags -fomit-frame-pointer
+    filter-flags -fomit-frame-pointer
 
     RAW_LDFLAGS=$(raw-ldflags) edo ./configure                  \
         $(option ncurses || echo "-no-curses")                  \
@@ -68,9 +67,7 @@ ocaml_src_configure() {
 ocaml_src_compile() {
     # parallel builds are broken so often, its not even worth trying anymore
     emake -j1 world
-
-    # Parallel build fails when building ocamlopt
-    option ocamlopt && emake -j1 opt opt.opt
+    emake -j1 opt opt.opt
 }
 
 ocaml_src_install() {
@@ -81,19 +78,13 @@ ocaml_src_install() {
     # empty directory
     edo rmdir "${IMAGE}/usr/${LIBDIR}/ocaml/ocamldoc/custom"
 
-    # Remove empty man dir. (OCaml 3 only)
-    [[ $(ever major) == 3 ]] && option !ocamlopt && edo rmdir "${IMAGE}"/usr/share/man/man3
-
     # Remove man directory if needed
     option !doc && edo rm -rf "${IMAGE}"/usr/share/man/man3
 
     # compiler libraries
     dodir /usr/${LIBDIR}/ocaml/compiler-libs
     insinto /usr/${LIBDIR}/ocaml/compiler-libs
-    doins "${WORK}"/{utils,typing,parsing}/*.{mli,cmi,cmo}
-
-    # these only exist if native code compiler was built
-    option ocamlopt && doins "${WORK}"/{utils,typing,parsing}/*.{cmx,o}
+    doins "${WORK}"/{utils,typing,parsing}/*.{mli,cmi,cmo,cmx,o}
 
     # headers
     dodir /usr/include
