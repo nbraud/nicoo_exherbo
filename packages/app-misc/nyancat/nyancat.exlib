@@ -1,0 +1,16 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=klange rev=${PV} ]
+
+SLOT="0"
+LICENCES="NCSA"
+
+SUMMARY="Renders a nyancat animation in your terminal"
+
+src_install() {
+    dobin src/nyancat
+    doman nyancat.1
+    dodoc README.md
+}
+
