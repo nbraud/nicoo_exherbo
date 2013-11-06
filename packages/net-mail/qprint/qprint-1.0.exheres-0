@@ -1,0 +1,21 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="MIME quoted-printable data encoding and decoding utility"
+HOMEPAGE="http://www.fourmilab.ch/webtools/qprint/"
+DOWNLOADS="http://www.fourmilab.ch/webtools/${PN}/${PNV}.tar.gz"
+
+LICENCES="public-domain"
+SLOT="0"
+PLATFORMS="~amd64"
+
+src_configure() {
+    econf --hates=docdir
+}
+
+src_install() {
+    dobin qprint
+    doman qprint.1
+    emagicdocs
+}
+
