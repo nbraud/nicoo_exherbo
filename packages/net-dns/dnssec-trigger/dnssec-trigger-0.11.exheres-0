@@ -1,0 +1,45 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+PLATFORMS="~amd64"
+SLOT="0"
+LICENCES="BSD"
+
+SUMMARY="DNSSEC-related tools"
+DESCRIPTION="
+Dnssec-trigger reconfigures the local unbound DNS server.
+This unbound DNS server performs DNSSEC validation, but dnssec-trigger will
+signal it to to use the DHCP obtained forwarders if possible, and fallback
+to doing its own AUTH queries if that fails, and if that fails prompt the user
+via dnssec-trigger-applet the option to go with insecure DNS only.
+
+This allows to have local validation for DNSSEC, without hammering needlessly
+the authoritative DNS servers, and fallbacks gracefully on networks where this
+isn't possible (first by having Unbound run as a recursive resolver, then by
+notifying the user that only insecure DNS is available).
+"
+
+HOMEPAGE="https://www.nlnetlabs.nl/projects/${PN}/"
+DOWNLOADS="https://www.nlnetlabs.nl/downloads/${PN}/${PNV}.tar.gz"
+
+DEPENDENCIES="
+    build+run:
+      dev-libs/glib
+      dev-libs/openssl
+      net-dns/unbound
+      net-libs/ldns
+      x11-libs/gtk+:2
+"
+
+
+src_install() {
+    default
+    edo rmdir "${IMAGE}"/var{/run,}
+}
+
+pkg_postinst() {
+    elog "Run dnssec-trigger-control-setup the first time you install dnssec-trigger-control-setup"
+    elog "dnssec-trigger-control-setup -i can adapt unbound's config for you, if you want"
+    elog "Don't forget to run dnssec-trigger-panel on your desktop"
+}
+
