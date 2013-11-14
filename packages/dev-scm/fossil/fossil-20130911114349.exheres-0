@@ -1,0 +1,38 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+MYPNV="${PN}-src-${PV}"
+
+PLATFORMS="~amd64 ~x86"
+HOMEPAGE="http://www.fossil-scm.org"
+DOWNLOADS="${HOMEPAGE}/download/${MYPNV}.tar.gz"
+
+WORK="${WORKBASE}/${MYPNV}"
+
+SUMMARY="Distributed version control, bug tracking, wiki, and blog"
+DESCRIPTION="
+Fossil is an easy-to-use Distributed Source Control Management system
+(DSCM) which supports access and administration over HTTP CGI or via a
+built-in HTTP server, has a built-in wiki, file browser, ticket system,
+and more.
+"
+
+LICENCES="BSD-2"
+SLOT="0"
+
+DEPENDENCIES="
+    build+run:
+      dev-db/sqlite:3
+      dev-libs/openssl
+      sys-devel/make
+      sys-libs/ncurses
+      sys-libs/readline
+
+"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --hates=docdir
+    --hates=enable-fast-install
+    --hates=disable-silent-rules
+)
+
