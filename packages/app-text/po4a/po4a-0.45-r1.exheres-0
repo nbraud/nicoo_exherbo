@@ -18,12 +18,10 @@ DEPENDENCIES="
 
   suggestion:
     dev-perl/Term-ReadKey
-    dev-perl/SGMLSpm
     dev-perl/Text-WrapI18N
+
+  recommendation+test:
+    dev-perl/SGMLSpm
     dev-perl/Unicode-LineBreak
 "
-
-src_test() {
-    elog "Tests for app-text/po4a are temporarily disabled."
-}
 
