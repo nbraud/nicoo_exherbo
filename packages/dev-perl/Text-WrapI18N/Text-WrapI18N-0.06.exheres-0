@@ -1,0 +1,10 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module [ module_author=KUBOTA ]
+
+SUMMARY="Internationalized line-wrapping module"
+DESCRIPTION="Line wrapping module with support for multibyte, fullwidth, and combining characters and languages without whitespaces between words."
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
