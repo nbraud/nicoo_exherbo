@@ -10,10 +10,19 @@ SUMMARY="PO 4 Anything"
 HOMEPAGE="http://${PN}.alioth.debian.org"
 DOWNLOADS="mirror://debian/pool/main/p/po4a/${PN}_${PV}.orig.tar.gz -> ${PNV}.tgz"
 
+
 DEPENDENCIES="
   run:
     dev-lang/perl
     dev-perl/Locale-gettext
+
+  suggestion:
+    dev-perl/Term-ReadKey
+
+  suggestion+test:
+    dev-perl/SMGLSpm
+    dev-perl/Text-WrapI18N
+    dev-perl/Unicode-LineBreak
 "
 
 src_test() {
