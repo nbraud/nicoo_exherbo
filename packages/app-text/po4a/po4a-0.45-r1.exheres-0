@@ -16,3 +16,7 @@ DEPENDENCIES="
     dev-perl/Locale-gettext
 "
 
+src_test() {
+    elog "Tests for app-text/po4a are temporarily disabled."
+}
+
