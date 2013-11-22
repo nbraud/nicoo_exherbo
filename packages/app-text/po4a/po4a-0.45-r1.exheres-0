@@ -18,9 +18,7 @@ DEPENDENCIES="
 
   suggestion:
     dev-perl/Term-ReadKey
-
-  suggestion+test:
-    dev-perl/SMGLSpm
+    dev-perl/SGMLSpm
     dev-perl/Text-WrapI18N
     dev-perl/Unicode-LineBreak
 "
