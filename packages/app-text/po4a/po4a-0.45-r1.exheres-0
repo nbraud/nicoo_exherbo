@@ -17,11 +17,11 @@ DEPENDENCIES="
     dev-perl/Locale-gettext
 
   suggestion:
-    dev-perl/Term-ReadKey
-    dev-perl/Text-WrapI18N
+    dev-perl/Term-ReadKey   [[ description = [ Used to retrieve line-width ] ]]
+    dev-perl/Text-WrapI18N  [[ description = [ Used to format warnings and error messages ] ]]
 
   recommendation+test:
-    dev-perl/SGMLSpm
-    dev-perl/Unicode-LineBreak
+    dev-perl/SGMLSpm           [[ description = [ Enable use of SGML ] ]]
+    dev-perl/Unicode-LineBreak [[ description = [ Used to compute text width ; needed by AsciiDoc ] ]]
 "
 
