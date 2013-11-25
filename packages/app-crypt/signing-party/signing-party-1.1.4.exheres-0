@@ -28,9 +28,11 @@ DEPENDENCIES="
 	  )
 
     recommendation:
-	  net-mail/qprint
-	  mail-client/mailx
-	  virtual/mta
+      (
+	    net-mail/qprint
+	    mail-client/mailx
+	    virtual/mta
+      ) [[ *description = [ Used for sending mails (e.g. after key signing) ] ]]
 "
 
 src_prepare() {
