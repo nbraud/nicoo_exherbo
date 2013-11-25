@@ -39,21 +39,12 @@ src_prepare() {
 	expatch "${FILES}"/${PN}-makefile.diff
 
 	edo sed -i -e \
-	    "s:/usr/share/doc/signing-party/caff/caffrc.sample:${EPREFIX}/usr/share/doc/${P}/caff/caffrc.sample.gz:g" \
+	    "s:/usr/share/doc/signing-party/caff/caffrc.sample:/usr/share/doc/${PN}/caff/caffrc.sample.gz:g" \
 	    caff/caff || die "Sed failed"
-
-	edo sed -i -e "s/make pgpring/\$(MAKE) pgpring/" keyanalyze/Makefile \
-	    || die "Sed failed"
-
-	edo sed -i -e \
-		"s|:/usr/share/signing-party|:${EPREFIX}/usr/share/signing-party|" \
-		gpgsigs/gpgsigs || die "Sed failed"
 }
 
 
 src_install() {
-	# Check Makefile when a new tool is introduced to this package.
-
 	# all manpages, and the root doc
 	doman */*.1
 	dodoc README
@@ -96,8 +87,6 @@ src_install() {
 	doman gpgwrap/doc/gpgwrap.1
 
 	# keyanalyze
-	# TODO: some of the scripts are intended for webpages, and not really
-	# packaging, so they are NOT installed yet.
 	newbin keyanalyze/pgpring/pgpring pgpring-keyanalyze
 	dobin keyanalyze/{keyanalyze,process_keys}
 	docinto keyanalyze
@@ -112,7 +101,7 @@ src_install() {
 	dobin sig2dot/sig2dot
 	dodoc sig2dot/README.sig2dot
 
-	# See media-gfx/springgraph instead
+    # springgraph
 	dobin springgraph/springgraph
 	dodoc springgraph/README.springgraph
 }
