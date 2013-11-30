@@ -3,4 +3,9 @@ zlin> nicoo: I should probably also mention that the quoting of "--prefix /usr" 
       but I assume that configure script is shitty enough for that to work anyway.
 * TODO Julia
 ** TODO SparseSuite
-
+* Inherinted from ::fauxmight
+** TODO app-misc/unison
+Exlibify and add 2.45.4 (masked for testing)
+** net-wireless/hostapd
+*** TODO Reread carefully
+*** Add files/options for other init systems
