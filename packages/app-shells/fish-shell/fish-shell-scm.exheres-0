@@ -10,6 +10,6 @@ SLOT="0"
 src_install() {
     default
 
-    edo rmdir "${IMAGE}"/usr/share/{fish/,}man/{man1/,}
+    option doc || edo rmdir "${IMAGE}"/usr/share/{fish/,}man/{man1/,}
 }
 
