@@ -1,0 +1,37 @@
+Source: Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+Upstream: Pull request pending (https://github.com/github/hub/pull/458)
+Reason: Need to install under ${IMAGE}
+
+From 9a1b158d0ed7f94ffbb82e962c859817348db63d Mon Sep 17 00:00:00 2001
+From: Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+Date: Thu, 9 Jan 2014 00:04:28 +0100
+Subject: [PATCH] Rakefile: Understand the DESTDIR environment variable
+
+---
+ Rakefile | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/Rakefile b/Rakefile
+index b0b5c85..209d349 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -115,12 +115,13 @@ task :install => "hub" do
+     FileUtils.cp 'hub', bindir
+   else
+     prefix = ENV['PREFIX'] || ENV['prefix'] || '/usr/local'
++    destdir = ENV['DESTDIR'] || ENV['destdir'] || ''
+ 
+-    FileUtils.mkdir_p "#{prefix}/bin"
+-    FileUtils.cp "hub", "#{prefix}/bin", :preserve => true
++    FileUtils.mkdir_p "#{destdir}#{prefix}/bin"
++    FileUtils.cp "hub", "#{destdir}#{prefix}/bin", :preserve => true
+ 
+-    FileUtils.mkdir_p "#{prefix}/share/man/man1"
+-    FileUtils.cp "man/hub.1", "#{prefix}/share/man/man1"
++    FileUtils.mkdir_p "#{destdir}#{prefix}/share/man/man1"
++    FileUtils.cp "man/hub.1", "#{destdir}#{prefix}/share/man/man1"
+   end
+ end
+ 
+-- 
+1.8.4.3
