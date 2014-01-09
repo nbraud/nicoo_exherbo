@@ -7,5 +7,5 @@ PLATFORMS="~amd64 ~x86"
 SLOT="0"
 DOWNLOADS="http://fishshell.com/files/${PV}/fish-${PV}.tar.gz"
 
-WORK="${WORKBASE}/fish"
+WORK="${WORKBASE}/fish-${PV}"
 
