@@ -1,0 +1,8 @@
+# Distributed under the terms of the GNU General Public License v2
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+
+require hub
+
+PLATFORMS="~amd64"
+SLOT="0"
+

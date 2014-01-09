@@ -1,0 +1,25 @@
+# Distributed under the terms of the GNU General Public License v2
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+
+require github [ user=github rev=v${PV} ]
+
+SUMMARY="GitHub's wrapper around git"
+DESCRIPTION="
+hub makes it easier to interact with GitHub (fetch repositories, navigate project
+pages, fork repos, submit pull requests) from the command-line.
+"
+HOMEPAGE="http://hub.github.com/"
+LICENCES="MIT"
+
+BUGS_TO="nicolas+exherbo@braud-santoni.eu"
+
+DEPENDENCIES="
+    build+run:
+      dev-lang/ruby:*[>=2.0.0]
+      dev-scm/git
+"
+
+src_install() {
+    edo rake DESTDIR="${IMAGE}" PREFIX="/usr" install
+}
+
