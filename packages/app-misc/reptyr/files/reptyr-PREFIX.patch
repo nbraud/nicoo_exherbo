@@ -1,0 +1,29 @@
+Source: Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+Upstream: Pull request open (https://github.com/nelhage/reptyr/pull/29)
+Reason: Make PREFIX overridable by the exheres
+
+From ade3a308c4923c209afe0898d0d12ca70299e26f Mon Sep 17 00:00:00 2001
+From: Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+Date: Sat, 11 Jan 2014 00:26:12 +0100
+Subject: [PATCH] Makefile: Make $(PREFIX) controlable through the environment
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 8293151..9a5a793 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ override CFLAGS+=-Wall -Werror -D_GNU_SOURCE -g
+ OBJS=reptyr.o ptrace.o attach.o
+ 
+-PREFIX=/usr/local
++PREFIX ?= /usr/local
+ 
+ all: reptyr
+ 
+-- 
+1.8.4.3
+
