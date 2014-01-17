@@ -14,6 +14,5 @@ LICENCES="MIT"
 
 BUGS_TO="nicolas+exherbo@braud-santoni.eu"
 
-DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PN}-PREFIX.patch" )
 DEFAULT_SRC_INSTALL_PARAMS=( PREFIX="/usr" )
 
