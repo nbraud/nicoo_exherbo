@@ -1,5 +1,5 @@
 Source: Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
-Upstream: Pull request pending (https://github.com/github/hub/pull/458)
+Upstream: Yes (PR https://github.com/github/hub/pull/458 merged)
 Reason: Need to install under ${IMAGE}
 
 From 9a1b158d0ed7f94ffbb82e962c859817348db63d Mon Sep 17 00:00:00 2001
