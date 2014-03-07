@@ -1,0 +1,31 @@
+# Copyright 2012-2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=pasky ]
+
+HOMEPAGE="http://davvil.github.com/pdfpc/"
+SUMMARY="A simple, terminal-based speed-reader"
+DESCRIPTION="
+This command line filter shows input text as a per-word RSVP
+(rapid serial visual presentation) aligned on optimal reading points.
+This kind of input mode allows reading text at a much more rapid pace than usual
+as the eye can stay fixed on a single place.
+"
+
+LICENCES="MIT"
+SLOT="0"
+PLATFORMS="~amd64"
+
+DEPENDENCIES="
+    run:
+      dev-lang/perl:*
+      dev-perl/Getopt-Long
+      dev-perl/Term-ANSIColor
+      dev-perl/Time-HiRes
+"
+
+src_install() {
+    dodoc README.md LICENCE
+    dobin ${PN}
+}
+
