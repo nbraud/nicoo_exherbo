@@ -1,0 +1,9 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module [ module_author=RRA ]
+
+SUMMARY="Color screen output using ANSI escape sequences"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
