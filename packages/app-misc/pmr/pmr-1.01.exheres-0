@@ -1,0 +1,21 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require checksums \
+    [ sha1=[ ${PNV}.tar.gz=f8d8782aa5081269326d3aa56bfac308470dbe0f ] ]
+
+HOMEPAGE="http://zakalwe.fi/~shd/foss/${PN}"
+SUMMARY="Measuring data rate on the UNIX command line"
+DESCRIPTION="
+pmr is a tool for measuring and/or limiting data rate on a shell pipe.
+It can also compute an MD5 digest on the fly and estimate remaining time.
+"
+
+LICENCES="public-domain"
+SLOT="0"
+PLATFORMS="~amd64"
+
+DOWNLOADS="${HOMEPAGE}/${PNV}.tar.gz"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=( --package-prefix="${IMAGE}" )
+
