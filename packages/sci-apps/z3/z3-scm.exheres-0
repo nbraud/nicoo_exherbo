@@ -1,0 +1,8 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+SCM_BRANCH="ml-ng"
+require z3
+
+PLATFORMS="~amd64"
+

@@ -1,0 +1,21 @@
+commit 43644fc2cbe8da8c74bdced967b8b9b9db50f677
+Author: Ken McMillan <kenmcmil@z3-mac.local>
+Date:   Fri Apr 4 01:28:09 2014 +0100
+
+    g++ pedantry
+
+diff --git a/src/interp/iz3hash.h b/src/interp/iz3hash.h
+index 355c038..a12cfb9 100644
+--- a/src/interp/iz3hash.h
++++ b/src/interp/iz3hash.h
+@@ -464,7 +464,9 @@ namespace hash_space {
+ 
+       Value &operator[](const Key& key) {
+ 	std::pair<Key,Value> kvp(key,Value());
+-	return lookup(kvp,true)->val.second;
++	return 
++	hashtable<std::pair<Key,Value>,Key,HashFun,proj1<Key,Value>,EqFun>::
++         lookup(kvp,true)->val.second;
+       }
+   };
+ 
