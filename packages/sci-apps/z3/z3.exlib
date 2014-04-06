@@ -2,8 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 
 SCM_REPOSITORY="https://git01.codeplex.com/z3"
-
 require scm-git
+
+HOMEPAGE="https://z3.codeplex.com/"
+SUMMARY="Open-source, high performance theorem prover"
 
 DEPENDENCIES="
     build:
