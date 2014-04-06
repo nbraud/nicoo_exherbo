@@ -3,7 +3,7 @@
 
 PLATFORMS="~amd64 ~x86"
 SLOT="0"
-LICENCES="BSD"
+LICENCES="BSD-3"
 
 SUMMARY="DNSSEC-related tools"
 
