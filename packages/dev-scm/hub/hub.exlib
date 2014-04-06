@@ -19,6 +19,8 @@ DEPENDENCIES="
       dev-scm/git
 "
 
+export_exlib_phases src_install
+
 src_install() {
     edo rake DESTDIR="${IMAGE}" PREFIX="/usr" install
 }
