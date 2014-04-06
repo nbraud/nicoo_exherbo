@@ -20,6 +20,8 @@ DEPENDENCIES="
         x11-server/xorg-server
 "
 
+export_exlib_phases src_install
+
 src_install() {
     dobin "${PN}"
     emagicdocs
