@@ -10,7 +10,7 @@ SUMMARY="Renders a nyancat animation in your terminal"
 
 export_exlib_phases src_install
 
-src_install() {
+nyancat_src_install() {
     dobin src/nyancat
     doman nyancat.1
     dodoc README.md
