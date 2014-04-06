@@ -22,7 +22,7 @@ DEPENDENCIES="
 
 export_exlib_phases src_install
 
-src_install() {
+xcalib_src_install() {
     dobin "${PN}"
     emagicdocs
     insinto /usr/share/pixmaps
