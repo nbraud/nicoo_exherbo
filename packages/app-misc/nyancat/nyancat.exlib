@@ -8,6 +8,8 @@ LICENCES="NCSA"
 
 SUMMARY="Renders a nyancat animation in your terminal"
 
+export_exlib_phases src_install
+
 src_install() {
     dobin src/nyancat
     doman nyancat.1
