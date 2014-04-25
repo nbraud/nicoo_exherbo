@@ -9,6 +9,7 @@ PLATFORMS="~amd64"
 
 DEPENDENCIES="
     build:
+      dev-perl/ExtUtils-CBuilder
       dev-perl/Test-NoWarnings
       dev-perl/Test-Simple
 
