@@ -1,0 +1,18 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module [ module_author=CFAERBER ]
+
+SUMMARY="Internationalizing Domain Names in Applications (IDNA)"
+SLOT="0"
+PLATFORMS="~amd64"
+
+DEPENDENCIES="
+    build:
+      dev-perl/Test-NoWarnings
+      dev-perl/Test-Simple
+
+    build+run:
+      dev-perl/Unicode-Normalize
+"
+
