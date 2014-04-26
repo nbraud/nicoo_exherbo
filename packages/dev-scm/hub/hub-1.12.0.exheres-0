@@ -8,5 +8,3 @@ SLOT="0"
 
 WORK="${WORKBASE}"/${PNV}
 
-DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}"/${PNV}-destdir.patch )
-
