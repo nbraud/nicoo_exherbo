@@ -1,0 +1,17 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module [ module_author=MATTP ]
+
+SUMMARY="Base classes wrapping fundamental Perl data types"
+SLOT="0"
+PLATFORMS="~amd64"
+
+DEPENDENCIES="
+    build+run:
+      dev-perl/Class-Method-Modifiers
+      dev-perl/List-MoreUtils
+      dev-perl/Role-Tiny
+      dev-perl/Scalar-List-Utils
+"
+
