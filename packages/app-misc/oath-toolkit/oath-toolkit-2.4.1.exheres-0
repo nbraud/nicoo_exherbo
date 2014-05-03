@@ -1,0 +1,24 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+SLOT="0"
+PLATFORMS="~amd64"
+
+SUMMARY="One-time password components"
+DESCRIPTION="The OATH Toolkit provide components for building one-time password
+authentication systems, amongst which shared libraries, command line tools and a
+PAM module. It supports the event-based HOTP algorithm (RFC4226) and the
+time-based TOTP algorithm (RFC6238)."
+
+HOMEPAGE="http://www.nongnu.org/${PN}/"
+DOWNLOADS="http://download.savannah.gnu.org/releases/${PN}/${PNV}.tar.gz"
+LICENCES="LGPL-2 GPL-3"
+
+DEPENDENCIES="
+    build+run:
+      dev-libs/xmlsec
+      sys-libs/pam
+"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=( --with-pam-dir="/usr/${LIBDIR}/security" )
+
