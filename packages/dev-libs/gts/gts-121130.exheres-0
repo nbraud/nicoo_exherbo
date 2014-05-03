@@ -12,7 +12,7 @@ WORK="${WORKBASE}/${PN}-snapshot-${PV}"
 
 DEPENDENCIES="
     build+run:
-      sys-libs/glibc
+      dev-libs/glib
 "
 
 src_test() {
