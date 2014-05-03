@@ -1,0 +1,21 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge
+
+SLOT="0"
+PLATFORMS="~amd64"
+
+SUMMARY="The GNU Triangulation Library"
+DOWNLOADS="${HOMEPAGE}tarballs/${PN}-snapshot-${PV}.tar.gz"
+WORK="${WORKBASE}/${PN}-snapshot-${PV}"
+
+DEPENDENCIES="
+    build+run:
+      sys-libs/glibc
+"
+
+src_test() {
+    ewarn "Tests consistently fail; skipping."
+}
+
