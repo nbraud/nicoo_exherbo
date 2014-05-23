@@ -1,22 +1,27 @@
 # Copyright 2012 Lasse Brun <bruners@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
-require sourceforge [ pnv="${PN}-source-${PV}" suffix="tar.gz" ]
-require freedesktop-desktop gtk-icon-cache qmake4
+require github [ user=gkovacs ] freedesktop-desktop gtk-icon-cache qmake
 
 SUMMARY="GUI for making bootable USB drives"
-DESCRIPTION="UNetbootin allows you to create bootable Live USB drives for most Linux distributions
-without burning a CD. You can either let UNetbootin download one of the many distributions supported
-out-of-the-box for you, or supply your own Linux .iso file if you've already downloaded one or your
-preferred distribution isn't on the list."
+DESCRIPTION="UNetbootin allows you to create bootable Live USB drives for
+most Linux distributions without burning a CD. You can either let
+UNetbootin download one of the many distributions supported out-of-the-box
+for you, or supply your own Linux .iso file if you've already downloaded
+one or your preferred distribution isn't on the list."
 
-UNETBOOTIN_LINGUAS="am ar ast be bg bn ca cs da de el eo es et eu fi fo fr gl he hr hu id it ja lt
-    lv ml ms nan nb nl nn pl pt pt_BR ro ru sk sl sr sv sw tr uk ur vi zh_CN zh_TW"
+UNETBOOTIN_LINGUAS="am ar ast be bg bn ca cs da de el eo es et eu fi fo fr
+    gl he hr hu id it ja lt lv ml ms nan nb nl nn pl pt pt_BR ro ru sk sl
+    sr sv sw tr uk ur vi zh_CN zh_TW"
+
 MYOPTIONS="linguas: ( ${UNETBOOTIN_LINGUAS} )"
 SLOT="0"
 LICENCES="GPL-2"
 PLATFORMS="~amd64"
 DEPENDENCIES="
+    build+run:
+      x11-libs/qt:4
+
     recommendation:
         base/syslinux [[
             description = [ Required for FAT32 and EXT2 formatted USB drive install mode ]
@@ -25,8 +30,13 @@ DEPENDENCIES="
             description = [ Required for Arch Linux install mode which depends upon mlabel ]
         ]]
 "
-WORK="${WORKBASE}"
-QMAKE4_SRC_CONFIGURE_PARAMS=( "DEFINES += NOSTATIC" "RESOURCES -= unetbootin.qrc" )
+
+WORK="${WORK}/src/${PN}"
+EQMAKE_SOURCES=( ${WORK}/${PN}.pro )
+QMAKE4_SRC_CONFIGURE_PARAMS=(
+    "DEFINES += NOSTATIC"
+    "RESOURCES -= unetbootin.qrc"
+)
 
 src_prepare() {
     # Configure http://sourceforge.net/apps/trac/unetbootin/wiki/compile
@@ -55,3 +65,4 @@ src_install() {
         option "linguas:${lang}" && doins "${WORK}"/${PN}_${lang}.qm
     done
 }
+
