@@ -1,0 +1,32 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas@braud-santoni.eu>
+# Based on github.exlib, which is:
+#    Copyright 2012 Benedikt Morbach <benedikt.morbach@googlemail.com>
+# Distributed under the terms of the GNU General Public License v2
+
+myexparam pn=${MY_PN:-${PN}}
+myexparam user=$(exparam pn)
+
+myexparam rev=${BITBUCKET_REVISION}
+#myexparam tag=${BITBUCKET_TAG:-${MY_PV:-${PV}}}
+
+# branch can only be used for scm versions
+myexparam branch=${BITBUCKET_BRANCH}
+
+myexparam pv=${MY_PV:-${PV}}
+
+HOMEPAGE="https://bitbucket.org/$(exparam user)/$(exparam pn)"
+
+if ever is_scm ; then
+    SCM_REPOSITORY="https://bitbucket.org/$(exparam user)/$(exparam pn).git"
+    exparam -v SCM_BRANCH branch
+    require scm-git
+else
+    if [[ -n $(exparam rev) ]] ; then
+        exparam -v what rev
+        work="$(exparam user)-$(exparam pn)-${what}"
+        WORK="${WORKBASE}/${work}"
+    fi
+
+    DOWNLOADS="https://bitbucket.org/$(exparam user)/$(exparam pn)/get/${what}.tar.bz2 -> ${PNV}.tar.bz2"
+fi
+
