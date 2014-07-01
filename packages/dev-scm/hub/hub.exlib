@@ -2,6 +2,7 @@
 # Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 
 require github [ user=github rev=v${PV} ]
+require zsh-completion
 
 SUMMARY="GitHub's wrapper around git"
 DESCRIPTION="
@@ -23,5 +24,7 @@ export_exlib_phases src_install
 
 hub_src_install() {
     edo rake DESTDIR="${IMAGE}" PREFIX="/usr" install
+
+    dozshcompletion etc/hub.zsh_completion _hub
 }
 
