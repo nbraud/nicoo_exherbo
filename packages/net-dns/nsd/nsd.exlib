@@ -1,0 +1,32 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require autotools [ supported_autoconf=[ 2.5 ] \
+                    supported_automake=[ 1.13 ] ]
+
+SLOT="0"
+LICENCES="BSD-4"
+
+SUMMARY="High performance, authoritative-only name server"
+
+HOMEPAGE="https://www.nlnetlabs.nl/projects/${PN}/"
+
+DEPENDENCIES="
+    build+run:
+      dev-libs/openssl
+      dev-libs/libevent
+"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --enable-recvmmsg
+    --enable-root-server
+)
+
+export_exlib_phases src_install
+
+nsd_src_install() {
+    default
+    edo rm -r "${IMAGE}/var"
+    edo rm -r "${IMAGE}/tmp"
+}
+
