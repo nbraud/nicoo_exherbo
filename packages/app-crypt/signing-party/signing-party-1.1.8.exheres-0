@@ -12,6 +12,7 @@ HOMEPAGE="http://pgp-tools.alioth.debian.org/"
 LICENCES="GPL-2"
 SLOT="0"
 PLATFORMS="~amd64"
+WORK="${WORKBASE}"
 
 DEPENDENCIES="
     build+run:
