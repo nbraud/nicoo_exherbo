@@ -27,9 +27,7 @@ DEPENDENCIES="
         net-libs/libnl:1
 "
 
-BUGS_TO="fauxmight@nosocomia.com"
-
-WORK="${WORK}/${PV}"
+WORK="${WORKBASE}"/${PNV}/${PN}
 
 src_prepare() {
     sed -i -e "s:/etc/hostapd:/etc/hostapd/hostapd:g" \
