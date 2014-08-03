@@ -6,7 +6,7 @@ LICENCES="ISC"
 HOMEPAGE="http://code.kryo.se/${PN}/"
 DOWNLOADS="${HOMEPAGE}${PNV}.tar.gz"
 SLOT="0"
-PLATFORMS="~x86"
+PLATFORMS="~amd64"
 
 src_install() {
     dobin bin/{iodine,iodined}
