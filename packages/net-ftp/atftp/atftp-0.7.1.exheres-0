@@ -1,18 +1,10 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 # Copyright 2010 Timothy Redaelli <timothy@redaelli.eu>
 # Distributed under the terms of the GNU General Public License v2
 
-# Since upstream website is dead use the debian version
-MY_PV=${PV%_p*}.dfsg
-MY_PNV=${PN}-${MY_PV}
-require debian-upstream [ debian_pv="${MY_PV}.orig" ]
+require sourceforge [ suffix=tar.gz ]
 
 SUMMARY="Advanced TFTP implementation client/server"
-
-DEB_PATCHFILE="${PN}_${MY_PV}-${PV#*_p}.diff"
-
-HOMEPAGE=""
-DOWNLOADS+=" mirror://debian/pool/main/a/${PN}/${DEB_PATCHFILE}.gz"
-
 LICENCES="GPL-2"
 SLOT="0"
 PLATFORMS="~amd64"
@@ -23,13 +15,6 @@ DEPENDENCIES="
     tcpd? ( sys-apps/tcp-wrappers )
     sys-libs/readline
 "
-
-BUGS_TO="timothy@redaelli.eu"
-
-DEFAULT_SRC_PREPARE_PATCHES=(
-    "${WORKBASE}"/${DEB_PATCHFILE}
-    "${FILES}"/${MY_PNV}-tests.patch
-)
 
 DEFAULT_SRC_CONFIGURE_PARAMS=(
     --enable-libreadline
@@ -42,6 +27,4 @@ DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=(
 )
 
 RESTRICT="test"     # FIXME Tests fails with sydbox
-
-WORK="${WORKBASE}"/${MY_PNV}
 
