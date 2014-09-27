@@ -3,7 +3,7 @@
 
 require hub
 
-PLATFORMS="~amd64"
+PLATFORMS="~amd64 ~arm"
 SLOT="0"
 
 WORK="${WORKBASE}"/${PNV}
