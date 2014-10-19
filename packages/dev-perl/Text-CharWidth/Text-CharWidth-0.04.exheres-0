@@ -1,0 +1,13 @@
+# Copyright 2014 Nikolay Orliuk <virkony@gmail.com>
+# Distributed under the terms of the GNU General Public License v2
+
+require perl-module [ module_author=KUBOTA ]
+
+SUMMARY="Get number of occupied columns of a string on terminal"
+DESCRIPTION="
+This module supplies features similar as wcwidth(3) and wcswidth(3) in C
+language.
+"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
