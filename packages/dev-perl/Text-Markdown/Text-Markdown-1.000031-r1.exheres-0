@@ -7,3 +7,10 @@ SUMMARY="Perl module for Markdown, a lightweight markup language"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
+DEPENDENCIES="
+    test:
+        dev-perl/List-MoreUtils
+        dev-perl/Test-Differences
+        dev-perl/Test-Exception
+"
+
