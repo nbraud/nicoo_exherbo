@@ -24,6 +24,10 @@ DEPENDENCIES="
    	dev-perl/YAML-LibYAML
 "
 
+RESTRICT=test # requires network and extra modules
+
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/0001-fix-shebang-paths-manipulations.patch" )
+
 WORK="${WORKBASE}/${PN}"
 PERL_MODULE_SRC_CONFIGURE_PARAMS=( PREFIX="/usr" )
 
@@ -31,11 +35,5 @@ src_prepare() {
     default
 
     edo sed -i 's/\/lib\//\/${LIBDIR}\//g' ${WORK}/Makefile.PL
-}
-
-src_install() {
-    default
-
-    edo rmdir ${IMAGE}/usr/share/ikiwiki/examples/blog/posts/first_post
 }
 
