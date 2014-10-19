@@ -17,7 +17,7 @@ DEPENDENCIES="
     dev-perl/Locale-gettext
 
   suggestion:
-    dev-perl/Term-ReadKey   [[ description = [ Used to retrieve line-width ] ]]
+    dev-perl/TermReadKey   [[ description = [ Used to retrieve line-width ] ]]
     dev-perl/Text-WrapI18N  [[ description = [ Used to format warnings and error messages ] ]]
 
   recommendation+test:
