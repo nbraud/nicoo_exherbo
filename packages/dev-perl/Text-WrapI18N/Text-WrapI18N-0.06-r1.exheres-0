@@ -8,3 +8,8 @@ DESCRIPTION="Line wrapping module with support for multibyte, fullwidth, and com
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
+DEPENDENCIES="
+    test:
+        dev-perl/Text-CharWidth
+"
+
