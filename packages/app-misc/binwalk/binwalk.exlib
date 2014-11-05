@@ -1,0 +1,28 @@
+# Distributed under the terms of the GNU General Public License v2
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+
+if is_scm; then
+    require setup-py [ blacklist="2 3.2" import="distutils" ]
+    require github [ user=devttys0 ]
+else
+    require github [ user=devttys0 rev=v${PV} ]
+    require setup-py [ blacklist="2 3.2" import="distutils" ]
+fi
+
+SUMMARY="A firmware analysis tool"
+DESCRIPTION="
+Binwalk is a fast, easy to use tool for analyzing and extracting firmware images.
+"
+HOMEPAGE="http://binwalk.org/"
+LICENCES="MIT"
+
+BUGS_TO="nicolas+exherbo@braud-santoni.eu"
+
+DEPENDENCIES="
+    build+run:
+      dev-lang/python:*[>=3.3]
+
+    run:
+      sys-apps/file
+"
+
