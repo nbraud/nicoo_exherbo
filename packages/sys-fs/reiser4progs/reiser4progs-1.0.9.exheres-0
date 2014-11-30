@@ -1,0 +1,15 @@
+# Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+require sourceforge [ project=reiser4/reiser4-utils/${PN} suffix=tar.gz ]
+
+SLOT="0"
+PLATFORMS="~amd64"
+
+SUMMARY="Reiser4 filesystem tools"
+
+DEPENDENCIES="
+    build+run:
+      dev-libs/libaal
+"
+
