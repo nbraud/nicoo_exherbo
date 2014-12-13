@@ -1,7 +1,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 
-require github [ user=github rev=v${PV} ]
+require github [ user=github tag=v${PV} ]
 require zsh-completion
 
 SUMMARY="GitHub's wrapper around git"

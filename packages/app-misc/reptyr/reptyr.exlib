@@ -1,7 +1,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 
-require github [ user=nelhage rev="${PN}-${PV}" ]
+require github [ user=nelhage tag=${PNV} ]
 
 SUMMARY="Reparent a running program to a new terminal"
 DESCRIPTION="

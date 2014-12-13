@@ -5,7 +5,7 @@ if is_scm; then
     require setup-py [ blacklist="2 3.2" import="distutils" ]
     require github [ user=devttys0 ]
 else
-    require github [ user=devttys0 rev=v${PV} ]
+    require github [ user=devttys0 tag=v${PV} ]
     require setup-py [ blacklist="2 3.2" import="distutils" ]
 fi
 
