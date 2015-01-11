@@ -19,7 +19,7 @@ PLATFORMS="~amd64 ~x86"
 
 DEPENDENCIES="
     build:
-        dev-lang/ocaml[threads?]
+        dev-lang/ocaml
     build+run:
         gtk? (
             x11-libs/gtk+:2[>2.2]
@@ -27,7 +27,7 @@ DEPENDENCIES="
         )
 "
 DOWNLOADS="http://www.seas.upenn.edu/~bcpierce/unison/download/releases/${PNV}/${PNV}.tar.gz"
-MYOPTIONS="gtk threads"
+MYOPTIONS="gtk"
 
 BUGS_TO="fauxmight@nosocomia.com"
 
@@ -35,10 +35,11 @@ REMOTE_IDS="freshmeat:unison"
 UPSTREAM_CHANGELOG="http://www.seas.upenn.edu/~bcpierce/unison/download/releases/beta/unison-manual.html#news"
 UPSTREAM_DOCUMENTATION="http://www.seas.upenn.edu/~bcpierce/unison/download/releases/beta/unison-manual.html#news"
 
+RESTRICT="test" # fails in the middle in order to skip the remaining tests
+
 src_compile() {
-    emake -j1 CFLAGS="" NATIVE="true" \
-        UISTYLE=$(option gtk && echo gtk2 || echo text) \
-        THREADS=$(option threads && echo true || echo false)
+    emake -j1 CFLAGS="" NATIVE="true" THREADS="true" \
+        UISTYLE=$(option gtk && echo gtk2 || echo text)
 }
 
 src_test() {
