@@ -32,6 +32,7 @@ DEPENDENCIES="
 
 DEFAULT_SRC_CONFIGURE_PARAMS=(
     --hates=docdir
+    --hates=datarootdir
     --hates=enable-fast-install
     --hates=disable-silent-rules
 )
