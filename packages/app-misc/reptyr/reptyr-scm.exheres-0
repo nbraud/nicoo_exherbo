@@ -6,3 +6,5 @@ require reptyr
 PLATFORMS="~amd64"
 SLOT="0"
 
+DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/0001-Make-install-more-configurable.patch" )
+
