@@ -1,0 +1,71 @@
+# Copyright 2010 A Frederick Christensen <fauxmight@nosocomia.com>
+# Copyright 2015 Wouter van Kesteren <woutershep@gmail.com>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'foo-1.23.ebuild' from Gentoo, which is:
+#     Copyright 1999-2010 Gentoo Foundation
+
+SUMMARY="User space daemon for access point and authentication servers"
+DESCRIPTION="
+    hostapd implements IEEE 802.11 access point management, IEEE 802.1X/WPA/WPA2/EAP
+    Authenticators, RADIUS client, EAP server, and RADIUS authentication server.
+"
+HOMEPAGE="http://hostap.epitest.fi/hostapd/"
+DOWNLOADS="http://hostap.epitest.fi/releases/${PNV}.tar.gz"
+
+LICENCES="|| ( GPL-2 BSD-3 )"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
+# If you want wps, madwifi, ssl or debug options, send patches :)
+MYOPTIONS="baselayout"
+
+DEPENDENCIES="
+    build+run:
+        virtual/libssl
+        net-libs/libnl:3.0
+"
+
+WORK="${WORKBASE}"/${PNV}/${PN}
+
+DEFAULT_SRC_COMPILE_PARAMS=(hostapd hostapd_cli nt_password_hash hlr_auc_gw)
+
+src_configure() {
+    # Reasonable defaults from defconfig
+    local ITEMS=(
+        CONFIG_DRIVER_{HOSTAP,NL80211}
+        CONFIG_EAP
+        CONFIG_EAP_{GTC,MD5,MSCHAPV2,PEAP,TLS,TTLS}
+        CONFIG_IAPP
+        CONFIG_IEEE80211N
+        CONFIG_IPV6
+        CONFIG_LIBNL{20,32,3_ROUTE}
+        CONFIG_NO_STDOUT_DEBUG
+        CONFIG_PEERKEY
+        CONFIG_PKCS12
+        CONFIG_RSN_PREAUTH
+    )
+
+    for ITEM in "${ITEMS[@]}"; do
+        echo "${ITEM}"=y >> .config || die "Failed to add to .config"
+    done
+}
+
+src_install() {
+    #This is especially messy. Yell at upstream
+
+    insinto /etc/hostapd
+    doins hostapd.conf hostapd.accept hostapd.deny hostapd.eap_user \
+        hostapd.radius_clients hostapd.sim_db hostapd.wpa_psk
+
+    dobin hostapd hostapd_cli nt_password_hash hlr_auc_gw
+
+    if option baselayout ; then
+        newinitd "${FILES}"/${PN}-init.d hostapd
+        newconfd "${FILES}"/${PN}-conf.d hostapd
+    fi
+
+    doman hostapd.8 hostapd_cli.1
+
+    emagicdocs
+}
+
