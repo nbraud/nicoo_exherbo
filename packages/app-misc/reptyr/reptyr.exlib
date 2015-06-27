@@ -19,3 +19,6 @@ DEFAULT_SRC_INSTALL_PARAMS=(
     MANDIR="/usr/share/man"
 )
 
+# NOTE(somasis): tests attempt to reparent a process using ptrace,
+# which almost definitely doesn't work on sydbox.
+RESTRICT=test

@@ -6,5 +6,3 @@ require reptyr
 PLATFORMS="~amd64"
 SLOT="0"
 
-DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}/${PNV}-Make-install-more-configurable.patch" )
-
