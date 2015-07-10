@@ -20,14 +20,18 @@ and more.
 LICENCES="BSD-2"
 SLOT="0"
 
+MYOPTIONS="
+    ( providers: libressl openssl ) [[ number-selected = exactly-one ]]
+"
+
 DEPENDENCIES="
     build+run:
       dev-db/sqlite:3
-      dev-libs/openssl
       sys-devel/make
       sys-libs/ncurses
       sys-libs/readline
-
+      providers:libressl? ( dev-libs/libressl:= )
+      providers:openssl? ( dev-libs/openssl )
 "
 
 DEFAULT_SRC_CONFIGURE_PARAMS=(
@@ -35,5 +39,9 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
     --hates=datarootdir
     --hates=enable-fast-install
     --hates=disable-silent-rules
+)
+
+DEFAULT_SRC_COMPILE_PARAMS=(
+    BCC=$(exhost --tool-prefix)cc
 )
 
