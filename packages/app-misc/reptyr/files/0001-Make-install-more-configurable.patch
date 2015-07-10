@@ -1,0 +1,40 @@
+Upstream: yes, submitted by Nikolay Orlyuk <virkony@gmail.com>
+
+Didn't apply to v0.6.2 so I had to generate a diff myself. -somasis
+
+ Makefile | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 0fb5b0d..4d1461d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -13,6 +13,10 @@ endif
+ #
+ # e.g. install to /usr with `make PREFIX=/usr`
+ PREFIX=/usr/local
++BINDIR=$(PREFIX)/bin
++MANDIR=$(PREFIX)/share/man
++
++PKG_CONFIG ?= pkg-config
+ 
+ all: reptyr
+ 
+@@ -40,11 +44,11 @@ clean:
+ 	rm -f reptyr $(OBJS) test/victim.o test/victim
+ 
+ install: reptyr
+-	install -d -m 755 $(DESTDIR)$(PREFIX)/bin/
+-	install -m 755 reptyr $(DESTDIR)$(PREFIX)/bin/reptyr
+-	install -d -m 755 $(DESTDIR)$(PREFIX)/share/man/man1
+-	install -m 644 reptyr.1 $(DESTDIR)$(PREFIX)/share/man/man1/reptyr.1
+-	install -d -m 755 $(DESTDIR)$(PREFIX)/share/man/fr/man1
+-	install -m 644 reptyr.fr.1 $(DESTDIR)$(PREFIX)/share/man/fr/man1/reptyr.1
++	install -d -m 755 $(DESTDIR)$(BINDIR)
++	install -m 755 reptyr $(DESTDIR)$(BINDIR)/reptyr
++	install -d -m 755 $(DESTDIR)$(MANDIR)/man1
++	install -m 644 reptyr.1 $(DESTDIR)$(MANDIR)/man1/reptyr.1
++	install -d -m 755 $(DESTDIR)$(MANDIR)/fr/man1
++	install -m 644 reptyr.fr.1 $(DESTDIR)$(MANDIR)/fr/man1/reptyr.1
+ 
+ .PHONY: PHONY

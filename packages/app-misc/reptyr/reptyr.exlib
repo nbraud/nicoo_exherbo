@@ -1,5 +1,6 @@
-# Distributed under the terms of the GNU General Public License v2
 # Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Copyright 2015 Kylie McClain <somasis@exherbo.org>
+# Distributed under the terms of the GNU General Public License v2
 
 require github [ user=nelhage tag=${PNV} ]
 
@@ -14,8 +15,13 @@ LICENCES="MIT"
 
 BUGS_TO="nicolas+exherbo@braud-santoni.eu"
 
+DEFAULT_SRC_PREPARE_PATCHES=(
+    "${FILES}"/0001-Make-install-more-configurable.patch
+)
+
 DEFAULT_SRC_INSTALL_PARAMS=(
     PREFIX="/usr/$(exhost --target)"
+    BINDIR="/usr/$(exhost --target)/bin"
     MANDIR="/usr/share/man"
 )
 
