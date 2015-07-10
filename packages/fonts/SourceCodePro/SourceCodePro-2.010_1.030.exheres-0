@@ -1,0 +1,25 @@
+# Copyright 2012-2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+roman_PV=${PV/_*}R-ro
+italic_PV=${PV##*_}R-it
+MY_PV=${roman_PV}/${italic_PV}
+
+require xfont
+require github [ user=adobe-fonts pn=source-code-pro ]
+
+SUMMARY="Monospaced version of Adobe's Source Sans"
+
+LICENCES="OFL-1.1"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+src_install() {
+    insinto "/usr/share/fonts/X11/${FONT}/"
+    doins "${WORK}"/TTF/*.ttf
+    doins "${WORK}"/OTF/*.otf
+
+    emagicdocs
+}
+
