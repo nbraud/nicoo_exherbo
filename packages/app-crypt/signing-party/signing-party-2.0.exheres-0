@@ -1,0 +1,105 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Distributed under the terms of the GNU General Public License v2
+
+# This is adapted from Gentoo's ebuild
+# http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-crypt/signing-party/signing-party-1.1.4.ebuild?revision=1.4
+
+require debian-upstream [ suffix=.orig.tar.gz ]
+
+SUMMARY="Collection of GnuPG-related tools"
+HOMEPAGE="http://pgp-tools.alioth.debian.org/"
+
+LICENCES="GPL-2"
+SLOT="0"
+PLATFORMS="~amd64"
+WORK="${WORKBASE}"
+
+DEPENDENCIES="
+    build+run:
+      app-crypt/gnupg[>=1.3.92]
+      dev-perl/GnuPG-Interface
+      dev-perl/libintl-perl
+      dev-perl/MIME-tools
+      dev-perl/MailTools[>=1.62]
+      dev-perl/Net-IDN-Encode
+      dev-perl/Text-Template
+      dev-lang/perl
+
+    recommendation:
+      (
+        net-mail/qprint
+        mail-client/mailx
+        virtual/mta
+      ) [[ *description = [ Used for sending mails (e.g. after key signing) ] ]]
+"
+
+src_prepare() {
+    edo sed -i -e \
+        "s:/usr/share/doc/signing-party/caff/caffrc.sample:/usr/share/doc/${PNVR}/caff/caffrc.sample.gz:g" \
+        caff/caff || die "Sed failed"
+    edo sed -e "s#^CC=.*#CC=$(exhost --tool-prefix)cc#;"    \
+            -e "/STRIP/d"                                   \
+            -e "/^CFLAGS/d" -e "/^CPPFLAGS/d" -e "/^LDFLAGS/d" \
+            -i gpgwrap/src/Makefile
+}
+
+src_install() {
+    # all manpages, and the root doc
+    doman */*.1
+    dodoc README
+
+    # caff
+    dobin caff/caff caff/pgp-clean caff/pgp-fixkey
+    docinto caff
+    dodoc caff/{README*,THANKS,TODO,caffrc.sample}
+
+    # gpg-mailkeys
+    dobin gpg-mailkeys/gpg-mailkeys
+    docinto gpg-mailkeys
+    dodoc gpg-mailkeys/{example.gpg-mailkeysrc,README}
+
+    # gpg-key2ps
+    dobin gpg-key2ps/gpg-key2ps
+    docinto gpg-key2ps
+    dodoc gpg-key2ps/README
+
+    # gpgdir
+    dobin gpgdir/gpgdir
+    docinto gpgdir
+    dodoc gpgdir/{VERSION,LICENSE,README,INSTALL,CREDITS,ChangeLog*}
+
+    # gpglist
+    dobin gpglist/gpglist
+
+    # gpgsigs
+    dobin gpgsigs/gpgsigs
+
+    # gpgparticipants
+    dobin gpgparticipants/gpgparticipants
+
+    # gpgwrap
+    dobin gpgwrap/bin/gpgwrap
+    docinto gpgwrap
+    dodoc gpgwrap/{LICENSE,NEWS,README}
+    doman gpgwrap/doc/gpgwrap.1
+
+    # keyanalyze
+    newbin keyanalyze/pgpring/pgpring pgpring-keyanalyze
+    dobin keyanalyze/{keyanalyze,process_keys}
+    docinto keyanalyze
+    dodoc keyanalyze/{README,Changelog}
+
+    # keylookup
+    dobin keylookup/keylookup
+    docinto keylookup
+    dodoc keylookup/NEWS
+
+    # sig2dot
+    dobin sig2dot/sig2dot
+    dodoc sig2dot/README.sig2dot
+
+    # springgraph
+    dobin springgraph/springgraph
+    dodoc springgraph/README.springgraph
+}
+
