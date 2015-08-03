@@ -1,0 +1,24 @@
+# Copyright 2012-2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Copyright 2014 Alexander Scheuermann <alex+exherbo@tnix.de>
+# Distributed under the terms of the GNU General Public License v2
+
+MY_PV=${PV}R
+
+require xfont
+require github [ user=adobe-fonts pn=source-serif-pro ]
+
+SUMMARY="Free, versatile OpenType font by Adobe"
+
+LICENCES="OFL-1.1"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS=""
+
+src_install() {
+    insinto "/usr/share/fonts/X11/${FONT}/"
+    doins "${WORK}"/OTF/*.otf
+    doins "${WORK}"/TTF/*.ttf
+
+    emagicdocs
+}
+
