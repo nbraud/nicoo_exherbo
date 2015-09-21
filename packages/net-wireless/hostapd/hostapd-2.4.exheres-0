@@ -1,5 +1,6 @@
-# Copyright 2010 A Frederick Christensen <fauxmight@nosocomia.com>
+# Copyright 2015 Sergey Kvachonok <ravenexp@gmail.com>
 # Copyright 2015 Wouter van Kesteren <woutershep@gmail.com>
+# Copyright 2010 A Frederick Christensen <fauxmight@nosocomia.com>
 # Distributed under the terms of the GNU General Public License v2
 # Based in part upon 'foo-1.23.ebuild' from Gentoo, which is:
 #     Copyright 1999-2010 Gentoo Foundation
@@ -17,17 +18,22 @@ SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
 # If you want wps, madwifi, ssl or debug options, send patches :)
-MYOPTIONS="baselayout"
+MYOPTIONS="
+    baselayout
+
+    ( providers: libressl openssl ) [[ number-selected = exactly-one ]]
+"
 
 DEPENDENCIES="
     build+run:
-        virtual/libssl
         net-libs/libnl:3.0
+        providers:libressl? ( dev-libs/libressl:= )
+        providers:openssl? ( dev-libs/openssl )
 "
 
 WORK="${WORKBASE}"/${PNV}/${PN}
 
-DEFAULT_SRC_COMPILE_PARAMS=(hostapd hostapd_cli nt_password_hash hlr_auc_gw)
+DEFAULT_SRC_COMPILE_PARAMS=(hostapd hostapd_cli nt_password_hash)
 
 src_configure() {
     # Reasonable defaults from defconfig
@@ -57,7 +63,7 @@ src_install() {
     doins hostapd.conf hostapd.accept hostapd.deny hostapd.eap_user \
         hostapd.radius_clients hostapd.sim_db hostapd.wpa_psk
 
-    dobin hostapd hostapd_cli nt_password_hash hlr_auc_gw
+    dobin hostapd hostapd_cli nt_password_hash
 
     if option baselayout ; then
         newinitd "${FILES}"/${PN}-init.d hostapd
