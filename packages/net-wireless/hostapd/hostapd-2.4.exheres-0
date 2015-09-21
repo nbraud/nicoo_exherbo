@@ -5,6 +5,8 @@
 # Based in part upon 'foo-1.23.ebuild' from Gentoo, which is:
 #     Copyright 1999-2010 Gentoo Foundation
 
+require systemd-service
+
 SUMMARY="User space daemon for access point and authentication servers"
 DESCRIPTION="
     hostapd implements IEEE 802.11 access point management, IEEE 802.1X/WPA/WPA2/EAP
@@ -64,6 +66,8 @@ src_install() {
         hostapd.radius_clients hostapd.sim_db hostapd.wpa_psk
 
     dobin hostapd hostapd_cli nt_password_hash
+
+    install_systemd_files
 
     if option baselayout ; then
         newinitd "${FILES}"/${PN}-init.d hostapd
