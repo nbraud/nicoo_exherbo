@@ -1,0 +1,26 @@
+From 427eaca8d80feb446ed163dbd6a54a860b1ed8ed Mon Sep 17 00:00:00 2001
+From: Nelson Elhage <nelhage@nelhage.com>
+Date: Mon, 21 Sep 2015 09:23:07 -0700
+Subject: [PATCH] suppress a gdb unitialized-var warning
+
+The warning seems to be spurious. fixes #63
+---
+ attach.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/attach.c b/attach.c
+index de860b8..14c9ca5 100644
+--- a/attach.c
++++ b/attach.c
+@@ -498,7 +498,7 @@ int steal_child_pty(struct steal_pty_state *steal) {
+ // it doesn't die.
+ int steal_block_hup(struct steal_pty_state *steal) {
+     struct ptrace_child leader;
+-    child_addr_t scratch;
++    child_addr_t scratch = 0;
+     int err = 0;
+ 
+     if ((err = grab_pid(steal->target_stat.sid, &leader, &scratch)))
+-- 
+2.5.3
+
