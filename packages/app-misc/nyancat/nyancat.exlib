@@ -4,7 +4,7 @@
 require github [ user=klange ]
 
 SLOT="0"
-LICENCES="NCSA"
+LICENCES="UoI-NCSA"
 
 SUMMARY="Renders a nyancat animation in your terminal"
 
