@@ -14,16 +14,14 @@ It supports SMTP extensions including TLS, authentication, pipelining, and XCLIE
 HOMEPAGE="http://www.jetmore.org/john/code/swaks"
 DOWNLOADS="${HOMEPAGE}/files/${PNV}.tar.gz"
 
-MYOPTIONS="
-    md5  [[ description = [ Support for AUTH DIGEST-MD5 ] ]]
-    ssl
-"
+MYOPTIONS=""
 
 DEPENDENCIES="
     run:
       dev-lang/perl:*
-      md5? ( dev-perl/Authen-SASL )
-      ssl? ( dev-perl/Net-SSLeay  )
+    suggestion:
+      dev-perl/Authen-SASL [[ description = [ Support for AUTH DIGEST-MD5 ] ]]
+      dev-perl/Net-SSLeay [[ description = [ Support for SSL ] ]]
 "
 
 
@@ -31,8 +29,6 @@ src_install() {
     emagicdocs
     dodoc doc/*
 
-    insinto /usr/bin
-    edo chmod +x swaks
-    doins swaks
+    dobin swaks
 }
 
