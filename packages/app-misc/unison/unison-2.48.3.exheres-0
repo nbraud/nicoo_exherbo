@@ -31,7 +31,6 @@ MYOPTIONS="gtk"
 
 BUGS_TO="fauxmight@nosocomia.com"
 
-REMOTE_IDS="freshmeat:unison"
 UPSTREAM_CHANGELOG="http://www.seas.upenn.edu/~bcpierce/unison/download/releases/beta/unison-manual.html#news"
 UPSTREAM_DOCUMENTATION="http://www.seas.upenn.edu/~bcpierce/unison/download/releases/beta/unison-manual.html#news"
 
