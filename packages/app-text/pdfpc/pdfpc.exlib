@@ -1,9 +1,7 @@
 # Copyright 2012-2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 # Distributed under the terms of the GNU General Public License v2
 
-myexparam vala_slot
-
-require github [ user=davvil suffix=tgz ] vala [ vala_slots=[ $(exparam vala_slot) ] ] cmake
+require github [ user=davvil suffix=tgz ] vala cmake
 
 HOMEPAGE="http://davvil.github.com/pdfpc/"
 SUMMARY="GTK-based presentation viewer, with multi-screen support."
