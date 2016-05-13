@@ -1,0 +1,21 @@
+# Copyright 2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
+# Copyright 2016 Kylie McClain <somasis@exherbo.org>
+# Distributed under the terms of the GNU General Public License v2
+
+require github [ user=mtoyoda ]
+
+SUMMARY="SL (Steam Locomotive) runs across your terminal when you type 'sl' as you meant to type 'ls'."
+SLOT="0"
+
+src_prepare() {
+    default
+    edo sed -r -e '/^(CC|CFLAGS)=/d' -i Makefile
+}
+
+src_install() {
+    insinto /usr/$(exhost --target)/bin
+    dobin sl
+    doman sl.1
+    emagicdocs
+}
+
