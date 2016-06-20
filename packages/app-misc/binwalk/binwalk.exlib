@@ -1,13 +1,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 
-if is_scm; then
-    require setup-py [ blacklist="2 3.2" import="distutils" ]
-    require github [ user=devttys0 ]
-else
-    require github [ user=devttys0 tag=v${PV} ]
-    require setup-py [ blacklist="2 3.2" import="distutils" ]
-fi
+require setup-py [ blacklist="2 3.2" import="distutils" ]
+require github [ user=devttys0 tag=v${PV} ]
 
 SUMMARY="A firmware analysis tool"
 DESCRIPTION="
