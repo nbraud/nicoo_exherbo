@@ -4,7 +4,7 @@
 # This is adapted from Gentoo's ebuild
 # http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/app-crypt/signing-party/signing-party-1.1.4.ebuild?revision=1.4
 
-require debian-upstream [ suffix=.orig.tar.gz ]
+require debian-upstream [ suffix=orig.tar.gz ]
 
 SUMMARY="Collection of GnuPG-related tools"
 HOMEPAGE="http://pgp-tools.alioth.debian.org/"
