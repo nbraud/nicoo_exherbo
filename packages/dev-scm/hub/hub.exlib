@@ -41,6 +41,7 @@ hub_src_test() {
 
 hub_src_install() {
     dobin "${PN}"
+    doman man/"${PN}".1
 
     dobashcompletion etc/hub.bash_completion.sh
     dozshcompletion etc/hub.zsh_completion _zsh
