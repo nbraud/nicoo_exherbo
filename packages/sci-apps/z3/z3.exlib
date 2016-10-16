@@ -1,40 +1,33 @@
 # Copyright 2014 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 # Distributed under the terms of the GNU General Public License v2
 
-SCM_REPOSITORY="https://git01.codeplex.com/z3"
-require scm-git
+require github [ user="Z3Prover" tag="z3-${PV}" ]
 
-HOMEPAGE="https://z3.codeplex.com/"
 SUMMARY="Open-source, high performance theorem prover"
 
 DEPENDENCIES="
     build:
       dev-lang/python:2.7
-
     build+run:
       dev-lang/ocaml
       dev-libs/gmp:*
 "
 
-LICENCES="MSR-LA"
+LICENCES="MIT"
 SLOT="0"
 
 export_exlib_phases src_configure src_compile src_install
 
 z3_src_configure() {
-    edo python2 scripts/mk_make.py --gmp --ml
-    edo sed -i "s.\$(PREFIX)/lib.\$(PREFIX)/${LIBDIR}.g" build/Makefile
-    edo sed -i "s.PREFIX=/usr.PREFIX=${IMAGE}usr." build/config.mk
-    edo sed -i '/python2.7/d' build/Makefile
+    edo python2 scripts/mk_make.py --gmp --ml --prefix="/usr/$(exhost --target)"
 }
 
 z3_src_compile() {
-    emake -j1 -C build/
+    emake -C build/
 }
 
 z3_src_install() {
-    emake -j1 -C build/ install
+    emake -j1 -C build/ DESTDIR="${IMAGE}" install
 }
 
-DEFAULT_SRC_PREPARE_PATCHES=( "${FILES}"/z3-fix-build.patch )
 
