@@ -29,6 +29,10 @@ export_exlib_phases src_{prepare,compile,test,install}
 hub_src_prepare() {
     # fails due to network sandboxing
     edo rm commands/{cherry_pick,remote}_test.go github/editor_test.go
+
+    edo sed -i \
+            -e "s#-ldflags \"#-ldflags \"${GO_LDFLAGS} #" \
+            script/build
 }
 
 hub_src_compile() {
