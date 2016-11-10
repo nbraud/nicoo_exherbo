@@ -1,9 +1,11 @@
 # Copyright 2012-2013 Nicolas Braud-Santoni <nicolas+exherbo@braud-santoni.eu>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=davvil suffix=tgz ] vala cmake
+require cmake
+require github [ user=pdfpc tag=${MY_PV} ]
+require vala [ vala_dep=true ]
 
-HOMEPAGE="http://davvil.github.com/pdfpc/"
+HOMEPAGE="http://${PN}.github.io"
 SUMMARY="GTK-based presentation viewer, with multi-screen support."
 DESCRIPTION="
 pdfpc is a GTK based presentation viewer application for GNU/Linux which uses
@@ -12,7 +14,7 @@ multi-monitor output to provide meta information to the speaker.
 
 LICENCES="GPL-2"
 SLOT="0"
-MYOPTIONS=""
+MYOPTIONS="gstreamer"
 
 DEPENDENCIES="
     build:
@@ -20,9 +22,15 @@ DEPENDENCIES="
 
     build+run:
       app-text/poppler[glib]
-      base/libgee:1.0
+      base/libgee:0.8
       dev-libs/glib:2
-      gnome-desktop/librsvg:2
-      x11-libs/gtk+:2
+      x11-libs/gdk-pixbuf:2.0
+      x11-libs/gtk+:3
+      gstreamer? (
+        media-libs/gstreamer:1.0
+        media-plugins/gst-plugins-base:1.0
+      )
 "
+
+CMAKE_SRC_CONFIGURE_OPTIONS=( "gstreamer MOVIES" )
 
