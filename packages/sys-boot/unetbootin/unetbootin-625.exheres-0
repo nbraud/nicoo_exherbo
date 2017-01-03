@@ -1,7 +1,7 @@
 # Copyright 2012 Lasse Brun <bruners@gmail.com>
 # Distributed under the terms of the GNU General Public License v2
 
-require github [ user=gkovacs ] freedesktop-desktop gtk-icon-cache qmake
+require github [ user=gkovacs ] freedesktop-desktop gtk-icon-cache qmake [ slot=4 ]
 
 SUMMARY="GUI for making bootable USB drives"
 DESCRIPTION="UNetbootin allows you to create bootable Live USB drives for
