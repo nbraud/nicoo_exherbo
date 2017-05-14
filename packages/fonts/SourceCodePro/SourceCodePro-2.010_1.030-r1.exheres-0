@@ -20,6 +20,9 @@ src_install() {
     doins "${WORK}"/TTF/*.ttf
     doins "${WORK}"/OTF/*.otf
 
+    insinto /usr/share/fontconfig/conf.avail
+    doins "${FILES}"/65-source-code-pro.conf
+
     emagicdocs
 }
 
