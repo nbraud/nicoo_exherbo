@@ -4,15 +4,17 @@
 
 require github [ user=mtoyoda ]
 
+export_exlib_phases src_prepare src_install
+
 SUMMARY="SL (Steam Locomotive) runs across your terminal when you type 'sl' as you meant to type 'ls'."
 SLOT="0"
 
-src_prepare() {
+sl_src_prepare() {
     default
     edo sed -r -e '/^(CC|CFLAGS)=/d' -i Makefile
 }
 
-src_install() {
+sl_src_install() {
     insinto /usr/$(exhost --target)/bin
     dobin sl
     doman sl.1
