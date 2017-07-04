@@ -11,9 +11,6 @@ DEPENDENCIES="
     build:
       dev-perl/Test-NoWarnings
       dev-perl/Test-Simple
-
-    build+run:
-      dev-perl/Unicode-Normalize
 "
 
 export LD="${CC}"
