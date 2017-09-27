@@ -10,7 +10,6 @@ PLATFORMS="~amd64"
 DEPENDENCIES="
     build:
       dev-perl/Test-NoWarnings
-      dev-perl/Test-Simple
 "
 
 export LD="${CC}"
