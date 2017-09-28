@@ -12,8 +12,15 @@ DOWNLOADS="mirror://debian/pool/main/p/po4a/${PN}_${PV}.orig.tar.gz -> ${PNV}.tg
 
 
 DEPENDENCIES="
+  build:
+    dev-libs/libxslt [[ note = xsltproc ]]
+    dev-perl/Module-Build
+  build+run:
+    sys-devel/gettext
   run:
     dev-perl/Locale-gettext
+  test:
+    app-text/docbook-sgml-dtd:4.1
 
   suggestion:
     dev-perl/TermReadKey   [[ description = [ Used to retrieve line-width ] ]]
