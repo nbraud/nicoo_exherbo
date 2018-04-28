@@ -4,6 +4,8 @@
 # Based in part on 'unison-2.27.57-r1.ebuild' from Gentoo, which is
 #     Copyright 1999-2008 Gentoo Foundation
 
+require github [ user=bcpierce00 tag="v${PV}" ]
+
 SLOT="0"
 
 SUMMARY="Bi-directional file synchronization tool written in OCaml"
@@ -26,7 +28,6 @@ DEPENDENCIES="
             dev-ocaml/lablgtk
         )
 "
-DOWNLOADS="http://www.seas.upenn.edu/~bcpierce/unison/download/releases/${PNV}/${PNV}.tar.gz"
 MYOPTIONS="gtk"
 
 BUGS_TO="fauxmight@nosocomia.com"
@@ -46,7 +47,8 @@ src_test() {
 }
 
 src_install() {
-    dobin unison
+    dobin src/unison
+    dobin src/unison-fsmonitor
     emagicdocs
 }
 
