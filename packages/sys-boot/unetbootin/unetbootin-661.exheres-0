@@ -46,6 +46,8 @@ src_prepare() {
 }
 
 src_install() {
+    local size lang
+
     # Install the binary
     dobin ${PN}
 
